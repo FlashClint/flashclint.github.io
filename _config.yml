@@ -1,4 +1,4 @@
-###########################################################
+﻿###########################################################
 ### Welcome to Beautiful Jekyll!
 ### This config file is meant for settings that affect your entire website. When you first
 ### set up your website you should go through all these settings and edit them, but after
@@ -242,7 +242,7 @@ paginate: 5
 paginate_path: "/blog/page:num/"
 
 kramdown:
-  input: GFM
+  input: kramdown
   math_engine: mathjax
 
 # Default YAML values (more information on Jekyll's site)
@@ -278,5 +278,7 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+
+
 
 

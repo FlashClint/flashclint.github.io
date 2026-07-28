@@ -72,7 +72,7 @@ comments: true
 
 #### Amplitude
 **小振幅是为了让针尖处于短程力区、实现高衬度(high contrast)，同时也能减少流体力的扰动，但振幅不能过小，防止样品损伤**
-- large oscillation amplitudes <font color="#ff0000">(~10–100 nm)</font> are desirable for measuring long-range interactions (e.g., **electrostatic and hydrophobic**), whereas small oscillation amplitudes (<<font color="#ff0000">3 nm</font>) are suitable for sensing short-range interactions (e.g., **Pauli repulsion and van der Waals**) (from <span style="background:rgba(240, 107, 5, 0.2)">Dufrene & Muller, Nat. Methods (2013)</span>)
+- large oscillation amplitudes <font color="#ff0000">(~10–100 nm)</font> are desirable for measuring long-range interactions (e.g., **electrostatic and hydrophobic**), whereas small oscillation amplitudes (<font color="#ff0000">3 nm</font>) are suitable for sensing short-range interactions (e.g., **Pauli repulsion and van der Waals**) (from <span style="background:rgba(240, 107, 5, 0.2)">Dufrene & Muller, Nat. Methods (2013)</span>)
 - amplitude可以调整到与蛋白突起高度差不多 (对于膜蛋白：4~15 nm) (from <span style="background:rgba(240, 107, 5, 0.2)">Muller, Nat. Protoc (2014)</span>)，或 突起高度的~2倍(from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne, Chromosome Architecture (2022)</span>)
 - at too-high amplitudes the force feedback may be impaired and the biological sample may be damaged (from <span style="background:rgba(240, 107, 5, 0.2)">Muller, Nat. Protoc (2014)</span>)
 - 
