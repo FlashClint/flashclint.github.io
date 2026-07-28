@@ -25,8 +25,8 @@ navbar-links:
   About: "aboutme"
   Research: "research"
   Blog:
-    - Protocols: "/tags#protocols"
-    - Research Notes: "/tags#research-notes"
+    - Protocols: "protocols"
+    - Research Notes: "research-notes"
   Collections: "collections"
 
 ################
@@ -278,6 +278,7 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+
 
 
 
