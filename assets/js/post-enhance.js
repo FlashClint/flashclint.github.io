@@ -1,18 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Make callouts collapsible
   var callouts = document.querySelectorAll('.callout');
   callouts.forEach(function(callout) {
     var title = callout.querySelector('p');
     if (!title) return;
 
-    // Create header
     var header = document.createElement('div');
     header.className = 'callout-header';
     header.setAttribute('onclick', 'toggleCallout(this)');
 
     var toggle = document.createElement('span');
     toggle.className = 'callout-toggle';
-    toggle.textContent = '\u25be';  // ▾
+    toggle.textContent = '\u25be';
 
     var titleSpan = document.createElement('span');
     titleSpan.className = 'callout-title-text';
@@ -21,19 +19,19 @@ document.addEventListener('DOMContentLoaded', function() {
     header.appendChild(toggle);
     header.appendChild(titleSpan);
 
-    // Create body with remaining content
     var body = document.createElement('div');
     body.className = 'callout-body';
 
-    var next = title.nextElementSibling;
     var nodes = [];
+    var next = title.nextElementSibling;
     while (next) {
       nodes.push(next);
       next = next.nextElementSibling;
     }
-    nodes.forEach(function(n) { body.appendChild(n.cloneNode(true)); });
 
-    // Replace title with header
+    // Move nodes into body (removes from original position)
+    nodes.forEach(function(n) { body.appendChild(n); });
+
     callout.insertBefore(header, title);
     callout.insertBefore(body, title.nextSibling);
     callout.removeChild(title);
