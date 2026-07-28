@@ -1,4 +1,4 @@
-###########################################################
+﻿###########################################################
 ### Welcome to Beautiful Jekyll!
 ### This config file is meant for settings that affect your entire website. When you first
 ### set up your website you should go through all these settings and edit them, but after
@@ -22,8 +22,12 @@ author: Clint Chen
 ###############################################
 
 navbar-links:
+  About: "aboutme"
   Research: "research"
-  Blogs: # "/blogs/learning_notes"
+  Blog:
+    - Research Notes: "tag/research-notes"
+    - Life Essays: "tag/life-essays"
+    - Reading Notes: "tag/reading-notes"
   Collections: "collections"
 
 ################
@@ -58,7 +62,7 @@ social-network-links:
 
 # If you want your website to generate an RSS feed, provide a description
 # The URL for the feed will be https://<your_website>/feed.xml
-# rss-description: This website is a virtual proof that I'm awesome
+rss-description: "Clint Chen blog about molecular biophysics and personal essays"
 
 ###########################
 # --- General options --- #
@@ -73,7 +77,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-#url-pretty: "MyWebsite.com"
+url-pretty: "flashclint.github.io"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
@@ -98,7 +102,7 @@ edit_page_button: true
 # See https://github.com/daattali/beautiful-jekyll/issues/765 to understand the issue this setting can solve
 navbar-var-length: false
 
-# The keywords to associate with your website, for SEO purposes
+keywords: "molecular biophysics, AFM, single-molecule, membrane protein, research, Clint Chen"
 #keywords: "my,list,of,keywords"
 
 ######################################
@@ -274,4 +278,5 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+
 
