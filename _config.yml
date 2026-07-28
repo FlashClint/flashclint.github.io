@@ -1,4 +1,4 @@
-﻿###########################################################
+###########################################################
 ### Welcome to Beautiful Jekyll!
 ### This config file is meant for settings that affect your entire website. When you first
 ### set up your website you should go through all these settings and edit them, but after
@@ -10,27 +10,20 @@
 ############################
 
 # Name of website
-title: Clint Chen | ?????? ? ?? ? ?? | ?????? ? ?? ? ?? | 分子生物物理 · 研究 · 思考
+title: Clint Chen
 
-description: >-
-  Clint Chen 的个人网站 — 分子生物物理研究者，记录科研笔记、学习心得与生活思考
+description: personal website
 
 # Your name to show in the footer
 author: Clint Chen
-remote_theme: daattali/beautiful-jekyll
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
 
 navbar-links:
-  About: "aboutme"
   Research: "research"
-  Blog:
-    - Research Notes: "tag/????"
-    - Learning Notes: "tag/????"
-    - Life Essays: "tag/????"
-    - Reading Notes: "tag/????"
+  Blogs: # "/blogs/learning_notes"
   Collections: "collections"
 
 ################
@@ -60,12 +53,12 @@ social-network-links:
   email: "flashclint@gmail.com"
   github: flashclint
   bluesky: rjchen3567.bsky.social
-  orcid: "0009-0001-7624-3514"
-  #google-scholar: "your-gs-id"
+#  ORCID: your ORCID ID
+#  google-scholar: your google scholar
 
 # If you want your website to generate an RSS feed, provide a description
 # The URL for the feed will be https://<your_website>/feed.xml
-rss-description: "Clint Chen's blog ? molecular biophysics, research notes, and personal essays"
+# rss-description: This website is a virtual proof that I'm awesome
 
 ###########################
 # --- General options --- #
@@ -80,13 +73,13 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "flashclint.github.io"
+#url-pretty: "MyWebsite.com"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
-excerpt_length: 80
+excerpt_length: 50
 
 # Whether or not to show an excerpt for every blog post in the feed page
 feed_show_excerpt: true
@@ -103,9 +96,10 @@ edit_page_button: true
 # Allow sub-menu items (second-level navigation menu items) to be longer than the top-level menu
 # If this setting is off, then long sub-menu words might get cut off
 # See https://github.com/daattali/beautiful-jekyll/issues/765 to understand the issue this setting can solve
-navbar-var-length: true
+navbar-var-length: false
 
-keywords: "molecular biophysics, computational biology, structural biology, research, blog, Clint Chen"
+# The keywords to associate with your website, for SEO purposes
+#keywords: "my,list,of,keywords"
 
 ######################################
 # --- Colours / background image --- #
@@ -136,8 +130,8 @@ footer-hover-col: "#2E5CD9"
 #mobile-theme-col: "#0085A1"
 
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
-site-css:
-  - "/assets/css/custom-styles.css"
+#site-css:
+#  - "/assets/css/custom-styles.css"
 
 # If you have common JavaScript files that should be included in every page, list them here
 #site-js:
@@ -280,7 +274,4 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
-
-
-
 

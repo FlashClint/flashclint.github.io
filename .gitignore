@@ -1,4 +1,4 @@
-﻿# project
+# project
 _site
 .sass-cache
 .vagrant
@@ -11,9 +11,3 @@ ehthumbs.db
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
-_preview/
-_preview2/
-msys64/
-__pycache__/
-*.pyc
-
