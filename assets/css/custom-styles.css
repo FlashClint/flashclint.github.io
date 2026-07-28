@@ -1,0 +1,15 @@
+/* Chinese font support */
+:root {
+  --body-font: 'Lora', 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'Times New Roman', serif;
+  --header-font: 'Open Sans', 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+}
+
+/* Callout styles */
+.callout { position: relative; }
+.callout p:last-child { margin-bottom: 0; }
+.callout code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+.callout ul, .callout ol { margin: 4px 0; padding-left: 20px; }
+
+/* Post preview */
+.post-preview { padding: 15px 0; border-bottom: 1px solid #eee; }
+.post-preview:last-child { border-bottom: none; }
