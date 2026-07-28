@@ -22,21 +22,23 @@ comments: true
 
 ## 探针校准
 - 在扫描前&扫描后、或者 改变激光照射位置后，都用一些硬基底(如：mica、glass等)来校针的deflection sensitivity
-<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 测量sensitivity的方法</p>
-  <div style="margin: 0;">一般说的deflection sensitivity又被称为 z scan sensitivity
+  一般说的deflection sensitivity又被称为 z scan sensitivity
 - 对于z scan sensitivity，用ramp，设置：trigger mode: relative; trig threshold: <0.5V
 - 对于PeakForce QNM，还需校准 Drive3 Amplitude Sensitivity (校准流程参见b站BrukerAFM课)
-- 若Drive3设置正确，则high-speed capture里height sensor的振幅与设置的peakforce amplitude应该会相同</div>
+- 若Drive3设置正确，则high-speed capture里height sensor的振幅与设置的peakforce amplitude应该会相同
 </div>
-<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+
+<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 探针的deflection sensitivity 在扫描过程中可能会发生变化，其可能原因为：</p>
-  <div style="margin: 0;">- 温度变化导致的激光位置偏移
+  - 温度变化导致的激光位置偏移
 - 探针表面反光度 因为沾染东西 或 涂层脱落等原因 发生变化
 
 **在几个小时的扫描后，探针deflection sensitivity变化5~8%是可接受的**
-*from:  Muller, Nat. Protoc (2014)*</div>
+*from:  Muller, Nat. Protoc (2014)*
 </div>
+
 - 测 k 需要让探针远离基底至少100μm
 	- 测得的 k 通常可能会与 nominal k 相差较大（可能会相差到3倍）
 
@@ -51,15 +53,17 @@ comments: true
 #### Sync Distance
 - 进针后要<font color="#ff0000">立即</font>设定 sync distance， 否则容易伤针
 	- 可以用 autoconfig 来设置该值，但对于小力情况(the peak force will be barely discernible above the noise)，则需要手动调
-<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Note</p>
-  <div style="margin: 0;">- Bruker Multimode 8的Force Monitor里，蓝线为approach，红线为retract
-- autoconfig的另一用处：分析并消除parasitic deflection (即ringing at the pulling-off point，一般包括：探针脱离表面的自由振荡、piezo周期变化带来的探针形变、粘滞力影响)</div>
+  - Bruker Multimode 8的Force Monitor里，蓝线为approach，红线为retract
+- autoconfig的另一用处：分析并消除parasitic deflection (即ringing at the pulling-off point，一般包括：探针脱离表面的自由振荡、piezo周期变化带来的探针形变、粘滞力影响)
 </div>
-<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+
+<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 Auto Config for small peak force setpoint (< ~20mV)</p>
-  <div style="margin: 0;">小setpoint情况下用auto config可能会导致探针直接脱离表面，因此需要先设置一个较大的setpoint，然后用auto config，之后再调回小的setpoint</div>
+  小setpoint情况下用auto config可能会导致探针直接脱离表面，因此需要先设置一个较大的setpoint，然后用auto config，之后再调回小的setpoint
 </div>
+
 - Sync Distance QNM是通过硬样品校准后得到的（之后不需要修改），而Sync Distance New则是用于feedback，需要在扫描时调节
 - Alice Pyne的观点：(from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne, Chromosome Architecture (2022)</span>)：先优化Sync Distance New，使小圆点在Force-Time曲线的peak force处，再把Sync Distance QNM设置成与Sync Distance New相同的值，并检查Force-Z曲线是否关于小圆点”对称“ <font color="#548dd4">(这也可以作为一种检查Sync Distance New是否被调得正确的方法，即：如果将Sync Distance QNM设得和Sync Distance New一致后Force-Z曲线关于小圆点对称，则设置正确)</font>
 - 当PeakForce Frequency改变时，Sync Distance也要相应地变化，一般frequency double时sync distance要减小为1/3(from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne, Chromosome Architecture (2022)</span>)
@@ -96,11 +100,12 @@ comments: true
 目的：用于减少baseline中在pull off时发生的ringing现象
 - 通常设置为peak force frequency的~20倍  (<65 kHz) (from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne's doctoral thesis (2015)</span>)
 - 但如果设置的值过低，会 distort force curve、再分析力学性质时引入误差
-<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 "LP Deflection BW"</p>
-  <div style="margin: 0;">This parameter invokes user-programmable low pass filter to remove high frequency noise from the real-time data. The filter operates on the collected data regardless of scan direction. The cutoff frequency can be set from 1~65 kHz
-相比之下，Peakforce里的lowpass deflection bandwidth (MM8里没有这个参数)只能设置为10~65.56 kHz</div>
+  This parameter invokes user-programmable low pass filter to remove high frequency noise from the real-time data. The filter operates on the collected data regardless of scan direction. The cutoff frequency can be set from 1~65 kHz
+相比之下，Peakforce里的lowpass deflection bandwidth (MM8里没有这个参数)只能设置为10~65.56 kHz
 </div>
+
 #### 扫描策略
 - 进针后顺序 (from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne, Chromosome Architecture (2022)</span>)
 	1. setpoint (使其稍微超过力噪声，~70 pN)
@@ -127,21 +132,23 @@ comments: true
 - 仪器及相关仪器最好在扫描前几个小时就打开，来尽量避免drift；上样后系统达到完全平衡，可能需要1h，可以通过监测deflection通道 或者 看diode信号("VERT", "HORI")来判断
 - 对于k较小的探针，热噪声通常是最大的噪声来源
 - cantilever drift对应的一般是，探针会呈现出一定程度的持续弯曲
-<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 如果仪器实在无法稳定，则依次判断：</p>
-  <div style="margin: 0;">- 如果仪器在液相和气相都不稳定，则有可能是周围热源影响 或者 仪器本身出问题
+  - 如果仪器在液相和气相都不稳定，则有可能是周围热源影响 或者 仪器本身出问题
 - 如果仪器只在液相不稳定，则比较可能是探针的问题
 
-*(from:  Muller, Nat. Protoc (2014))*</div>
+*(from:  Muller, Nat. Protoc (2014))*
 </div>
-<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+
+<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Possible causes of a large hysteresis between trace and retrace:</p>
-  <div style="margin: 0;">- 探针没夹紧
+  - 探针没夹紧
 - 基底不稳定（有气泡、胶没粘牢、撕mica时带起了一部分mica但未完全解离后又回落至基底）
 - feedback gain 太低
 
-*(from:  Muller, Nat. Protoc (2014))*</div>
+*(from:  Muller, Nat. Protoc (2014))*
 </div>
+
 #### 样品的洁净度
 **标准：对空mica进行扫描，没有发现杂质**
 - 使用nanopure, double-distilled or ultrapure water，而不是deionized water来避免水中的残留离子或有机物
@@ -160,6 +167,6 @@ comments: true
 	- “Proteins and fibrils that protrude by more than 3 nm from the mica surface may be imaged at a resolution **approaching 2 nm**, because such ‘large’ protrusions are likely to be structurally flexible and their protruding height prevents the proper contouring of the sample surface by the AFM stylus.” (from <span style="background:rgba(240, 107, 5, 0.2)">Muller, Nat. Protoc (2014)</span>)
 	- “There are a number of complications that currently prevent AFM from achieving atomic resolutions on biomolecules. These include: The binding of the biomolecule to an appropriate substrate, mobility of the molecule, the presence of contamination, the effect of forces exerted by the tip on the sample, and the difficulties in following the contours of a more complex and highly corrugated molecule using a feedback system, whilst accurately controlling the tip sample interaction and therefore the imaging force.” (from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne's doctoral thesis (2015)</span>)
 - 参数参考：(from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne's doctoral thesis (2015)</span> & <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne, Chromosome Architecture (2022)</span>)
-	- ![AlicePyne_doctoral_thesis_Table3.1.png](/assets/img/protocols/peakforce-tapping/AlicePyne_doctoral_thesis_Table3.1.png)(AlicePyne_doctoral_thesis_Table3.1.png = 400x)]
-	- ![AlicePyne_Chromosome_Architecture(2022).png](/assets/img/protocols/peakforce-tapping/AlicePyne_Chromosome_Architecture(2022).png)(AlicePyne_Chromosome_Architecture(2022).png = 400x)]
+	- <img src="/assets/img/protocols/peakforce-tapping/AlicePyne_doctoral_thesis_Table3.1.png" alt="AlicePyne_doctoral_thesis_Table3.1.png" width="400" style="max-width:100%;height:auto;">
+	- <img src="/assets/img/protocols/peakforce-tapping/AlicePyne_Chromosome_Architecture(2022).png" alt="AlicePyne_Chromosome_Architecture(2022).png" width="400" style="max-width:100%;height:auto;">
 - 

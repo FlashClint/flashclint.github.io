@@ -7,11 +7,12 @@ mathjax: true
 comments: true
 ---
 
-<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - Reference</p>
-  <div style="margin: 0;">1. Hausig‐Punke, F., Richter, F., Hoernke, M., Brendel, J. C. & Traeger, A. Tracking the Endosomal Escape: A Closer Look at Calcein and Related Reporters. _Macromolecular Bioscience_ **22**, 2200167 (2022).
-1</div>
+  1. Hausig‐Punke, F., Richter, F., Hoernke, M., Brendel, J. C. & Traeger, A. Tracking the Endosomal Escape: A Closer Look at Calcein and Related Reporters. _Macromolecular Bioscience_ **22**, 2200167 (2022).
+1
 </div>
+
 ## 写在前面
 liposome leakage assay 有一些常用的[荧光组合](https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/technical-notes-and-product-highlights/assays-of-volume-change-membrane-fusion-and-membrane-permeability.html?utm_source=chatgpt.com)，包括：
 - ANTS / DPX
@@ -20,18 +21,18 @@ liposome leakage assay 有一些常用的[荧光组合](https://www.thermofisher
 
 ## Calcein 基本信息
 - calcein  = fluorescein + iminodiacetic acid (EDTA的关键部分)，所以calcein同时具有荧光和螯合作用 (Ref.1)
-![calcein_synthesis.png](/assets/img/protocols/calcein-leakage/calcein_synthesis.png)]
+![calcein_synthesis.png](/assets/img/protocols/calcein-leakage/calcein_synthesis.png)
 - 其激发/发射谱如[下图](https://assets.thermofisher.cn/TFS-Assets/LSG/manuals/MAN0019058_CalceinAM_UG.pdf)：激发495 nm，发射515 nm
-![calcein_spectrum.png](/assets/img/protocols/calcein-leakage/calcein_spectrum.png)]
+![calcein_spectrum.png](/assets/img/protocols/calcein-leakage/calcein_spectrum.png)
 - calcein AM是一种能穿透细胞膜进入细胞、并在细胞内形成calcein的变体
 ### 影响calcein 发光的因素
 (Ref.1)
-![influencing_factor_of_calcein_fluorescence.png](/assets/img/protocols/calcein-leakage/influencing_factor_of_calcein_fluorescence.png)]
+![influencing_factor_of_calcein_fluorescence.png](/assets/img/protocols/calcein-leakage/influencing_factor_of_calcein_fluorescence.png)
 #### 浓度
 - 通常认为，calcein在浓度大于70 mM时会完全自淬灭（但不同条件下、不同文章给出的不尽相同）(Ref.1)
-![calcein_quenching_concentration_table.png](/assets/img/protocols/calcein-leakage/calcein_quenching_concentration_table.png)]
+![calcein_quenching_concentration_table.png](/assets/img/protocols/calcein-leakage/calcein_quenching_concentration_table.png)
 - 荧光强度随浓度的变化如下图 ([A](https://www.nature.com/articles/s41598-023-43813-4), [B](http://dx.doi.org/10.1023/a:1016832027325), [C](https://linkinghub.elsevier.com/retrieve/pii/S0731708598002295))
-![calcein_fluorescence-intensity_vs_concentration.png](/assets/img/protocols/calcein-leakage/calcein_fluorescence-intensity_vs_concentration.png)]
+![calcein_fluorescence-intensity_vs_concentration.png](/assets/img/protocols/calcein-leakage/calcein_fluorescence-intensity_vs_concentration.png)
 #### pH
 荧光强度随pH变化的变化幅度：6-carboxyfluorescein > calcein >sulforhodamine B
 calcain在pH4.5~10之间都能保持高荧光强度
@@ -39,31 +40,34 @@ calcain在pH4.5~10之间都能保持高荧光强度
 #### 阳离子
 - 碱土金属离子（Mg<sup>2+</sup>, Ca<sup>2+</sup>等）在碱性pH下会增强calcein的荧光，而在中性pH下只影响吸收谱、不影响荧光强度
 - 过渡金属离子（Co<sup>2+</sup>, Ni<sup>2+</sup>等）在中性pH下会淬灭calcein荧光（[图片来源：ThermoFisher](https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/indicators-for-ca2-mg2-zn2-and-other-metal-ions/fluorescent-indicators-for-zn2-and-other-metal-ions.html)）
-![calcein_quenched_by_metal-ions.png](/assets/img/protocols/calcein-leakage/calcein_quenched_by_metal-ions.png)(calcein_quenched_by_metal-ions.png = 500x)]
+<img src="/assets/img/protocols/calcein-leakage/calcein_quenched_by_metal-ions.png" alt="calcein_quenched_by_metal-ions.png" width="500" style="max-width:100%;height:auto;">
 - 在高pH下，Na<sup>+</sup>离子会提高荧光强度，而K<sup>+</sup>几乎不会改变calcein荧光性质
 
 ## Protocol
 概览(Ref.1)：
-![calcein-containing_liposome_preparation.png](/assets/img/protocols/calcein-leakage/calcein-containing_liposome_preparation.png)]
+![calcein-containing_liposome_preparation.png](/assets/img/protocols/calcein-leakage/calcein-containing_liposome_preparation.png)
 
 1. 将所需组分lipid吹制成膜，抽真空
 2. 加入含~70 mM calcein 或者 1 mM calcein + 1 mM Co<sup>2+</sup> 的溶液，充分振荡使lipid完全溶解
-<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 - 配制calcein 母液</p>
-  <div style="margin: 0;">- calcein酸性较强且在酸性条件下溶解性很低，因此需要用NaOH调pH、增加溶解度。实验上需要用pH计持续监测调pH的过程
-- 在没有缓冲体系存在下，稀释calcein母液，体系pH会明显降低。如果想维持pH稳定，则需要过量的缓冲物质（比如HEPES、Tris等）</div>
+  - calcein酸性较强且在酸性条件下溶解性很低，因此需要用NaOH调pH、增加溶解度。实验上需要用pH计持续监测调pH的过程
+- 在没有缓冲体系存在下，稀释calcein母液，体系pH会明显降低。如果想维持pH稳定，则需要过量的缓冲物质（比如HEPES、Tris等）
 </div>
+
 3. （可选项：在振荡后，先进行>5次的freeze-thaw cycle，据说可以提高calcein的包埋率）用extruder反复推拉>20次 或者 用超声处理
-<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - extrusion 和 sonication 的对比</p>
-  <div style="margin: 0;">extrusion是最常见的方法，且是控制liposome尺寸最好的方法，但有[文献](https://doi.org/10.3390/ma6083294)指出：由于shape relaxation，extrusion得到的liposome尺寸随时间（以天为单位）的增加会显著减少，并且lipid的流动性会在9天后显著降低，而sonication没有这种情况。但sonication的问题在于liposome size distribution较难控制。</div>
+  extrusion是最常见的方法，且是控制liposome尺寸最好的方法，但有[文献](https://doi.org/10.3390/ma6083294)指出：由于shape relaxation，extrusion得到的liposome尺寸随时间（以天为单位）的增加会显著减少，并且lipid的流动性会在9天后显著降低，而sonication没有这种情况。但sonication的问题在于liposome size distribution较难控制。
 </div>
+
 4. 配制liposome外相溶液，尽量使内外等渗（[70 mM calcein和110 mM NaCl大致等渗](https://www.sciencedirect.com/science/article/pii/S0006349522006063)），对于包埋Co<sup>2+</sup>-calcein的liposome，外相中需要含有>1 mM EDTA
 5. 用外相buffer过SEC柱 或 离心 或 超滤，来分离游离的calcein或者Co<sup>2+</sup>-calcein和包裹了染料的liposome
-<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - 分离方法对比</p>
-  <div style="margin: 0;">[文献](http://www.doi.org/10.26538/tjnpr/v6i9.6)指出：SEC会损失约40%的liposome，而1kD超滤几乎不会损失liposome；超滤会略微减小liposome的平均尺寸</div>
+  [文献](http://www.doi.org/10.26538/tjnpr/v6i9.6)指出：SEC会损失约40%的liposome，而1kD超滤几乎不会损失liposome；超滤会略微减小liposome的平均尺寸
 </div>
+
 6. 预实验确定合适的liposome稀释倍数：将liposome用外相buffer稀释成不同倍数后加入96孔板（黑色、低吸附），用荧光酶标仪测加入~0.2% (v/v) Triton X-100前后的荧光强度。比较合适的情况是，加入后强度为加入前的4~5倍。通常liposome的浓度在**1~100 μg/mL**
 7. 预实验确定所研究蛋白/分子对荧光强度的影响：设计四组对照（无liposome存在）：<u>外相buffer</u>；<u>外相buffer + 蛋白/分子</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein + 蛋白/分子</u>。并且最终都加入0.2% (v/v) Triton X-100。如果有显著影响，则需考虑优化浓度、降低影响，或者更换染料。
 8. 正式实验：每组至少3个对照：<u>外相buffer</u>；<u>外相buffer+liposome</u>；<u>外相buffer+liposome+蛋白/分子</u>。最终均加入0.2% (v/v) Triton X-100

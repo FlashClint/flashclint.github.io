@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-subtitle: Single-Molecule Biophysicist | Football Enthusiast
+subtitle: PhD Candidate | Football Fan
 ---
 
 I am a PhD student at the Institute of Physics, Chinese Academy of Sciences, working in Prof. Fang Jiao's lab. My research focuses on understanding the physical principles that govern molecular-scale biological processes.
