@@ -1,4 +1,4 @@
-###########################################################
+﻿###########################################################
 ### Welcome to Beautiful Jekyll!
 ### This config file is meant for settings that affect your entire website. When you first
 ### set up your website you should go through all these settings and edit them, but after
@@ -56,7 +56,7 @@ social-network-links:
   email: "flashclint@gmail.com"
   github: flashclint
   bluesky: rjchen3567.bsky.social
-  orcid: "https://orcid.org/0009-0001-7624-3514"
+  ORCID: "0009-0001-7624-3514"
 #  google-scholar: your google scholar
 
 # If you want your website to generate an RSS feed, provide a description
@@ -112,15 +112,15 @@ navbar-var-length: true
 
 page-col: "#E2F5FD"
 text-col: "#000000"
-link-col: "#2C86D9"
-hover-col: "#2E5CD9"
+link-col: "#0369a1"
+hover-col: "#0284c7"
 navbar-col: "#92D4FD"
 navbar-text-col: "#000000"
 navbar-border-col: "#2C86D9"
 footer-col: "#E2F5FD"
 footer-text-col: "#000000"
-footer-link-col: "#2C86D9"
-footer-hover-col: "#2E5CD9"
+footer-link-col: "#0369a1"
+footer-hover-col: "#0284c7"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
@@ -278,6 +278,8 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+
+
 
 
 
