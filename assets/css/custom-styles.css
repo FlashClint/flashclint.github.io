@@ -13,3 +13,12 @@
 /* Post preview */
 .post-preview { padding: 15px 0; border-bottom: 1px solid #eee; }
 .post-preview:last-child { border-bottom: none; }
+
+/* Post preview title smaller than Recent Updates */
+.post-preview .post-title {
+  font-size: 1.2em !important;
+  margin-bottom: 4px;
+}
+.post-preview .post-subtitle {
+  font-size: 1em !important;
+}

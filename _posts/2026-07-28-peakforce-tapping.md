@@ -2,9 +2,11 @@
 layout: post
 title: "PeakForce Tapping AFM Protocol"
 date: 2026-07-28
-tags: [protocol, research-notes, AFM, biophysics]
+tags: [protocols, research-notes, AFM, biophysics]
+mathjax: true
 comments: true
 ---
+
 ## 探针选择
 - k 要接近或者大于样品模量对应的“劲度系数”，使得探针能够在样品表面产生形变
 	- 对于生物样品，一般选择 0.01~0.5 N/m (from <span style="background:rgba(240, 107, 5, 0.2)">Dufrene & Muller, Nat. Methods (2013)</span>)
@@ -25,10 +27,11 @@ comments: true
   <div style="margin: 0;">一般说的deflection sensitivity又被称为 z scan sensitivity
 - 对于z scan sensitivity，用ramp，设置：trigger mode: relative; trig threshold: <0.5V
 - 对于PeakForce QNM，还需校准 Drive3 Amplitude Sensitivity (校准流程参见b站BrukerAFM课)
-- 若Drive3设置正确，则high-speed capture里height sensor的振幅与设置的peakforce amplitude应该会相同
-
-[!NOTE] 探针的deflection sensitivity 在扫描过程中可能会发生变化，其可能原因为：
-- 温度变化导致的激光位置偏移
+- 若Drive3设置正确，则high-speed capture里height sensor的振幅与设置的peakforce amplitude应该会相同</div>
+</div>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 探针的deflection sensitivity 在扫描过程中可能会发生变化，其可能原因为：</p>
+  <div style="margin: 0;">- 温度变化导致的激光位置偏移
 - 探针表面反光度 因为沾染东西 或 涂层脱落等原因 发生变化
 
 **在几个小时的扫描后，探针deflection sensitivity变化5~8%是可接受的**
@@ -51,10 +54,11 @@ comments: true
 <div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Note</p>
   <div style="margin: 0;">- Bruker Multimode 8的Force Monitor里，蓝线为approach，红线为retract
-- autoconfig的另一用处：分析并消除parasitic deflection (即ringing at the pulling-off point，一般包括：探针脱离表面的自由振荡、piezo周期变化带来的探针形变、粘滞力影响)
-
-[!Tip] Auto Config for small peak force setpoint (< ~20mV)
-小setpoint情况下用auto config可能会导致探针直接脱离表面，因此需要先设置一个较大的setpoint，然后用auto config，之后再调回小的setpoint</div>
+- autoconfig的另一用处：分析并消除parasitic deflection (即ringing at the pulling-off point，一般包括：探针脱离表面的自由振荡、piezo周期变化带来的探针形变、粘滞力影响)</div>
+</div>
+<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 Auto Config for small peak force setpoint (< ~20mV)</p>
+  <div style="margin: 0;">小setpoint情况下用auto config可能会导致探针直接脱离表面，因此需要先设置一个较大的setpoint，然后用auto config，之后再调回小的setpoint</div>
 </div>
 - Sync Distance QNM是通过硬样品校准后得到的（之后不需要修改），而Sync Distance New则是用于feedback，需要在扫描时调节
 - Alice Pyne的观点：(from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne, Chromosome Architecture (2022)</span>)：先优化Sync Distance New，使小圆点在Force-Time曲线的peak force处，再把Sync Distance QNM设置成与Sync Distance New相同的值，并检查Force-Z曲线是否关于小圆点”对称“ <font color="#548dd4">(这也可以作为一种检查Sync Distance New是否被调得正确的方法，即：如果将Sync Distance QNM设得和Sync Distance New一致后Force-Z曲线关于小圆点对称，则设置正确)</font>
@@ -128,10 +132,11 @@ comments: true
   <div style="margin: 0;">- 如果仪器在液相和气相都不稳定，则有可能是周围热源影响 或者 仪器本身出问题
 - 如果仪器只在液相不稳定，则比较可能是探针的问题
 
-*(from:  Muller, Nat. Protoc (2014))*
-
-[!Note] Possible causes of a large hysteresis between trace and retrace:
-- 探针没夹紧
+*(from:  Muller, Nat. Protoc (2014))*</div>
+</div>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Possible causes of a large hysteresis between trace and retrace:</p>
+  <div style="margin: 0;">- 探针没夹紧
 - 基底不稳定（有气泡、胶没粘牢、撕mica时带起了一部分mica但未完全解离后又回落至基底）
 - feedback gain 太低
 

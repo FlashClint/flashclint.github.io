@@ -14,6 +14,8 @@ Understanding how pore-forming proteins interact with and remodel lipid membrane
 ### 2. Peptide Self-Assembly
 Investigating how peptides self-assemble into higher-order structures on membrane surfaces.
 
+**Publication**: *Peptide self-assembly on membrane surfaces*. ACS Nano. [Link](https://pubs.acs.org/doi/10.1021/acsnano.5c14731)
+
 ### 3. Mechanisms of Antibiotic Action
 Exploring how antibiotics interact with bacterial membranes. *(Currently developing)*
 

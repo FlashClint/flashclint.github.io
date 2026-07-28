@@ -10,12 +10,12 @@
 ############################
 
 # Name of website
-title: Clint Chen
+title: Rongjing Chen
 
-description: "Personal website of Clint Chen - molecular biophysics research, learning notes, and personal essays"
+description: "Personal website of Rongjing Chen - molecular biophysics research, protocols, and personal essays"
 
 # Your name to show in the footer
-author: Clint Chen
+author: Rongjing Chen
 
 ###############################################
 # --- List of links in the navigation bar --- #
@@ -25,10 +25,8 @@ navbar-links:
   About: "aboutme"
   Research: "research"
   Blog:
+    - Protocols: "tag/protocols"
     - Research Notes: "tag/research-notes"
-    - Learning Notes: "tag/learning-notes"
-    - Life Essays: "tag/life-essays"
-    - Reading Notes: "tag/reading-notes"
   Collections: "collections"
 
 ################
@@ -58,7 +56,7 @@ social-network-links:
   email: "flashclint@gmail.com"
   github: flashclint
   bluesky: rjchen3567.bsky.social
-  orcid: "0009-0001-7624-3514"
+  orcid: "https://orcid.org/0009-0001-7624-3514"
 #  google-scholar: your google scholar
 
 # If you want your website to generate an RSS feed, provide a description
