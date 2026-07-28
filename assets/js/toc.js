@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var tocContainer = document.getElementById('toc-content');
   if (!content || !tocContainer) return;
 
-  var headings = content.querySelectorAll('h2, h3');
+  var headings = content.querySelectorAll('h2, h3, h4');
   if (headings.length < 2) {
     document.getElementById('toc-sidebar').style.display = 'none';
     return;
@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var li = document.createElement('li');
-    li.className = (h.tagName === 'H3') ? 'toc-h3' : 'toc-h2';
+    
+    if (h.tagName === 'H4') li.className = 'toc-h4';
+    else if (h.tagName === 'H3') li.className = 'toc-h3';
+    else li.className = 'toc-h2';
 
     var a = document.createElement('a');
     a.href = '#' + h.id;
