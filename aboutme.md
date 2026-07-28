@@ -1,16 +1,19 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: About Me
+subtitle: Single-Molecule Biophysicist | Football Enthusiast
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+I am a PhD student at the Institute of Physics, Chinese Academy of Sciences, working in Prof. Fang Jiao's lab. My research focuses on understanding the physical principles that govern molecular-scale biological processes.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+## Research Interests
 
-What else do you need?
+- **Single-molecule biophysics** — Investigating individual biomolecules to uncover mechanisms hidden in ensemble measurements
+- **Membrane protein dynamics** — Understanding how membrane proteins function and interact within lipid environments
+- **Protein-membrane interactions** — Exploring the biophysical principles of protein-membrane engagement
 
-### My story
+## Beyond the Lab
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+- Football (Premier League, Manchester City fan)
+- Travelling and hiking
+- Reading and learning
