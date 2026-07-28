@@ -160,6 +160,6 @@ comments: true
 	- “Proteins and fibrils that protrude by more than 3 nm from the mica surface may be imaged at a resolution **approaching 2 nm**, because such ‘large’ protrusions are likely to be structurally flexible and their protruding height prevents the proper contouring of the sample surface by the AFM stylus.” (from <span style="background:rgba(240, 107, 5, 0.2)">Muller, Nat. Protoc (2014)</span>)
 	- “There are a number of complications that currently prevent AFM from achieving atomic resolutions on biomolecules. These include: The binding of the biomolecule to an appropriate substrate, mobility of the molecule, the presence of contamination, the effect of forces exerted by the tip on the sample, and the difficulties in following the contours of a more complex and highly corrugated molecule using a feedback system, whilst accurately controlling the tip sample interaction and therefore the imaging force.” (from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne's doctoral thesis (2015)</span>)
 - 参数参考：(from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne's doctoral thesis (2015)</span> & <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne, Chromosome Architecture (2022)</span>)
-	- !400
-	- !400
+	- ![AlicePyne_doctoral_thesis_Table3.1.png](/assets/img/protocols/peakforce-tapping/AlicePyne_doctoral_thesis_Table3.1.png)(AlicePyne_doctoral_thesis_Table3.1.png = 400x)]
+	- ![AlicePyne_Chromosome_Architecture(2022).png](/assets/img/protocols/peakforce-tapping/AlicePyne_Chromosome_Architecture(2022).png)(AlicePyne_Chromosome_Architecture(2022).png = 400x)]
 - 

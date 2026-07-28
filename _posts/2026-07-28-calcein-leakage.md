@@ -2,7 +2,7 @@
 layout: post
 title: "Calcein-containing Liposome Leakage Assay Protocol"
 date: 2026-07-28
-tags: [protocols, research-notes, liposome, membrane, biophysics]
+tags: [protocols, research-notes, liposome, membrane]
 mathjax: true
 comments: true
 ---
@@ -20,18 +20,18 @@ liposome leakage assay 有一些常用的[荧光组合](https://www.thermofisher
 
 ## Calcein 基本信息
 - calcein  = fluorescein + iminodiacetic acid (EDTA的关键部分)，所以calcein同时具有荧光和螯合作用 (Ref.1)
-!calcein_synthesis.png
+![calcein_synthesis.png](/assets/img/protocols/calcein-leakage/calcein_synthesis.png)]
 - 其激发/发射谱如[下图](https://assets.thermofisher.cn/TFS-Assets/LSG/manuals/MAN0019058_CalceinAM_UG.pdf)：激发495 nm，发射515 nm
-!calcein_spectrum.png
+![calcein_spectrum.png](/assets/img/protocols/calcein-leakage/calcein_spectrum.png)]
 - calcein AM是一种能穿透细胞膜进入细胞、并在细胞内形成calcein的变体
 ### 影响calcein 发光的因素
 (Ref.1)
-!influencing_factor_of_calcein_fluorescence.png
+![influencing_factor_of_calcein_fluorescence.png](/assets/img/protocols/calcein-leakage/influencing_factor_of_calcein_fluorescence.png)]
 #### 浓度
 - 通常认为，calcein在浓度大于70 mM时会完全自淬灭（但不同条件下、不同文章给出的不尽相同）(Ref.1)
-!calcein_quenching_concentration_table.png
+![calcein_quenching_concentration_table.png](/assets/img/protocols/calcein-leakage/calcein_quenching_concentration_table.png)]
 - 荧光强度随浓度的变化如下图 ([A](https://www.nature.com/articles/s41598-023-43813-4), [B](http://dx.doi.org/10.1023/a:1016832027325), [C](https://linkinghub.elsevier.com/retrieve/pii/S0731708598002295))
-!calcein_fluorescence-intensity_vs_concentration.png
+![calcein_fluorescence-intensity_vs_concentration.png](/assets/img/protocols/calcein-leakage/calcein_fluorescence-intensity_vs_concentration.png)]
 #### pH
 荧光强度随pH变化的变化幅度：6-carboxyfluorescein > calcein >sulforhodamine B
 calcain在pH4.5~10之间都能保持高荧光强度
@@ -39,12 +39,12 @@ calcain在pH4.5~10之间都能保持高荧光强度
 #### 阳离子
 - 碱土金属离子（Mg<sup>2+</sup>, Ca<sup>2+</sup>等）在碱性pH下会增强calcein的荧光，而在中性pH下只影响吸收谱、不影响荧光强度
 - 过渡金属离子（Co<sup>2+</sup>, Ni<sup>2+</sup>等）在中性pH下会淬灭calcein荧光（[图片来源：ThermoFisher](https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/indicators-for-ca2-mg2-zn2-and-other-metal-ions/fluorescent-indicators-for-zn2-and-other-metal-ions.html)）
-!500
+![calcein_quenched_by_metal-ions.png](/assets/img/protocols/calcein-leakage/calcein_quenched_by_metal-ions.png)(calcein_quenched_by_metal-ions.png = 500x)]
 - 在高pH下，Na<sup>+</sup>离子会提高荧光强度，而K<sup>+</sup>几乎不会改变calcein荧光性质
 
 ## Protocol
 概览(Ref.1)：
-!calcein-containing_liposome_preparation.png
+![calcein-containing_liposome_preparation.png](/assets/img/protocols/calcein-leakage/calcein-containing_liposome_preparation.png)]
 
 1. 将所需组分lipid吹制成膜，抽真空
 2. 加入含~70 mM calcein 或者 1 mM calcein + 1 mM Co<sup>2+</sup> 的溶液，充分振荡使lipid完全溶解
