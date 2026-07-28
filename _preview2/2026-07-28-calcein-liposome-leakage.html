@@ -1,0 +1,1002 @@
+
+
+<!DOCTYPE html>
+<html lang="">
+<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  
+
+  <title>Calcein-containing Liposome Leakage Assay Protocol | Clint Chen | ?????? ? ?? ? ?? | ?????? ? ?? ? ?? | 分子生物物理 · 研究 · 思考</title>
+
+  
+  <meta name="author" content="Clint Chen">
+
+  <meta name="description" content="<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - Reference</p>
+  <div style="margin: 0;">1. Hausig‐Punke, F., Richter, F., Hoernke, M., Brendel, J. C. & Traeger, A. Tracking the Endosomal Escape: A Closer Look at Calcein and Related Reporters. _Macromolecular Bioscience_ **22**, 2200167 (2022).
+1</div>
+</div>
+
+<h2>写在前面</h2>
+<p>liposome leakage assay 有一些常用的<a href="https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/technical-notes-and-product-highlights/assays-of-volume-change-membrane-fusion-and-membrane-permeability.html?utm_source=chatgpt.com">荧光组合</a>，包括：
+- ANTS / DPX
+- Tb<sup>3+</sup> / DPA
+- fluorescein derivatives (比如calcein, carboxyfluorescein) (可搭配二价金属离子使用)</p>
+<h2>Calcein 基本信息</h2>
+<ul>
+<li>calcein  = fluorescein + iminodiacetic acid (EDTA的关键部分)，所以calcein同时具有荧光和螯合作用 (<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="calcein_synthesis.png" src="/assets/img/protocols/calcein-leakage/calcein_synthesis.png" /></li>
+<li>其激发/发射谱如<a href="https://assets.thermofisher.cn/TFS-Assets/LSG/manuals/MAN0019058_CalceinAM_UG.pdf">下图</a>：激发495 nm，发射515 nm
+<img alt="calcein_spectrum.png" src="/assets/img/protocols/calcein-leakage/calcein_spectrum.png" /></li>
+<li>calcein AM是一种能穿透细胞膜进入细胞、并在细胞内形成calcein的变体</li>
+</ul>
+<h3>影响calcein 发光的因素</h3>
+<p>(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="influencing_factor_of_calcein_fluorescence.png" src="/assets/img/protocols/calcein-leakage/influencing_factor_of_calcein_fluorescence.png" /></p>
+<h4>浓度</h4>
+<ul>
+<li>通常认为，calcein在浓度大于70 mM时会完全自淬灭（但不同条件下、不同文章给出的不尽相同）(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="calcein_quenching_concentration_table.png" src="/assets/img/protocols/calcein-leakage/calcein_quenching_concentration_table.png" /></li>
+<li>荧光强度随浓度的变化如下图 (<a href="https://www.nature.com/articles/s41598-023-43813-4">A</a>, <a href="http://dx.doi.org/10.1023/a:1016832027325">B</a>, <a href="https://linkinghub.elsevier.com/retrieve/pii/S0731708598002295">C</a>)
+<img alt="calcein_fluorescence-intensity_vs_concentration.png" src="/assets/img/protocols/calcein-leakage/calcein_fluorescence-intensity_vs_concentration.png" /></li>
+</ul>
+<h4>pH</h4>
+<p>荧光强度随pH变化的变化幅度：6-carboxyfluorescein &gt; calcein &gt;sulforhodamine B
+calcain在pH4.5~10之间都能保持高荧光强度</p>
+<h4>阳离子</h4>
+<ul>
+<li>碱土金属离子（Mg<sup>2+</sup>, Ca<sup>2+</sup>等）在碱性pH下会增强calcein的荧光，而在中性pH下只影响吸收谱、不影响荧光强度</li>
+<li>过渡金属离子（Co<sup>2+</sup>, Ni<sup>2+</sup>等）在中性pH下会淬灭calcein荧光（<a href="https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/indicators-for-ca2-mg2-zn2-and-other-metal-ions/fluorescent-indicators-for-zn2-and-other-metal-ions.html">图片来源：ThermoFisher</a>）
+<img src="/assets/img/protocols/calcein-leakage/calcein_quenched_by_metal-ions.png" alt="calcein_quenched_by_metal-ions.png" width="500" style="max-width: 100%; height: auto;"></li>
+<li>在高pH下，Na<sup>+</sup>离子会提高荧光强度，而K<sup>+</sup>几乎不会改变calcein荧光性质</li>
+</ul>
+<h2>Protocol</h2>
+<p>概览(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)：
+<img alt="calcein-containing_liposome_preparation.png" src="/assets/img/protocols/calcein-leakage/calcein-containing_liposome_preparation.png" /></p>
+<ol>
+<li>将所需组分lipid吹制成膜，抽真空</li>
+<li>加入含~70 mM calcein 或者 1 mM calcein + 1 mM Co<sup>2+</sup> 的溶液，充分振荡使lipid完全溶解</li>
+</ol>
+<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 - 配制calcein 母液</p>
+  <div style="margin: 0;">- calcein酸性较强且在酸性条件下溶解性很低，因此需要用NaOH调pH、增加溶解度。实验上需要用pH计持续监测调pH的过程
+- 在没有缓冲体系存在下，稀释calcein母液，体系pH会明显降低。如果想维持pH稳定，则需要过量的缓冲物质（比如HEPES、Tris等）</div>
+</div>
+
+<ol>
+<li>（可选项：在振荡后，先进行&gt;5次的freeze-thaw cycle，据说可以提高calcein的包埋率）用extruder反复推拉&gt;20次 或者 用超声处理</li>
+</ol>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - extrusion 和 sonication 的对比</p>
+  <div style="margin: 0;">extrusion是最常见的方法，且是控制liposome尺寸最好的方法，但有[文献](https://doi.org/10.3390/ma6083294)指出：由于shape relaxation，extrusion得到的liposome尺寸随时间（以天为单位）的增加会显著减少，并且lipid的流动性会在9天后显著降低，而sonication没有这种情况。但sonication的问题在于liposome size distribution较难控制。</div>
+</div>
+
+<ol>
+<li>配制liposome外相溶液，尽量使内外等渗（<a href="https://www.sciencedirect.com/science/article/pii/S0006349522006063">70 mM calcein和110 mM NaCl大致等渗</a>），对于包埋Co<sup>2+</sup>-calcein的liposome，外相中需要含有&gt;1 mM EDTA</li>
+<li>用外相buffer过SEC柱 或 离心 或 超滤，来分离游离的calcein或者Co<sup>2+</sup>-calcein和包裹了染料的liposome</li>
+</ol>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - 分离方法对比</p>
+  <div style="margin: 0;">[文献](http://www.doi.org/10.26538/tjnpr/v6i9.6)指出：SEC会损失约40%的liposome，而1kD超滤几乎不会损失liposome；超滤会略微减小liposome的平均尺寸</div>
+</div>
+
+<ol>
+<li>预实验确定合适的liposome稀释倍数：将liposome用外相buffer稀释成不同倍数后加入96孔板（黑色、低吸附），用荧光酶标仪测加入~0.2% (v/v) Triton X-100前后的荧光强度。比较合适的情况是，加入后强度为加入前的4~5倍。通常liposome的浓度在<strong>1~100 μg/mL</strong></li>
+<li>预实验确定所研究蛋白/分子对荧光强度的影响：设计四组对照（无liposome存在）：<u>外相buffer</u>；<u>外相buffer + 蛋白/分子</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein + 蛋白/分子</u>。并且最终都加入0.2% (v/v) Triton X-100。如果有显著影响，则需考虑优化浓度、降低影响，或者更换染料。</li>
+<li>正式实验：每组至少3个对照：<u>外相buffer</u>；<u>外相buffer+liposome</u>；<u>外相buffer+liposome+蛋白/分子</u>。最终均加入0.2% (v/v) Triton X-100</li>
+<li>数据处理：对荧光强度做归一化，荧光强度最大值可以用外相buffer+liposome加Triton X-100后得到的，也可以用外相buffer+liposome+蛋白/分子加Triton X-100后得到的</li>
+</ol>
+<p>若干文章方案参考：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">文献</th>
+<th style="text-align: center;">内相</th>
+<th style="text-align: center;">外相</th>
+<th style="text-align: center;">制备liposome</th>
+<th style="text-align: center;">分离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="https://bio-protocol.org/e3690">a</a></td>
+<td style="text-align: center;">103 mM calcein</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">extrusion</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.tjnpr.org/index.php/home/article/view/1254">b</a></td>
+<td style="text-align: center;">HEPES pH7.4<br>107 mM calcein</td>
+<td style="text-align: center;">HEPES pH7.4</td>
+<td style="text-align: center;">5 cycles 液氮-60℃,<br>sonication 30min,<br>extrusion 200 nm</td>
+<td style="text-align: center;">Sephadex G -25 SEC<br>or<br>1kD-ultrafiltration 4000 rpm for 15 min (total dilution: 4096)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1074/jbc.M200429200">c</a></td>
+<td style="text-align: center;">HBS<br>90 mM calcein</td>
+<td style="text-align: center;">HBS</td>
+<td style="text-align: center;">extrusion 50~600 nm</td>
+<td style="text-align: center;">100,000g-centrifugation of 1 mL solution 45 min ×2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1016/0005-2736(95)80035-E">d</a></td>
+<td style="text-align: center;">150 mM H<sub>2</sub>BO<sub>3</sub> <br>pH 9<br>5 mM EDTA<br>5 mM KOH<br>20 mM NaCl<br>80 mM calcein</td>
+<td style="text-align: center;">150 mM H<sub>2</sub>BO<sub>3</sub> <br>pH 9<br>5 mM EDTA<br>5 mM KOH<br>140 mM NaCl</td>
+<td style="text-align: center;">extrusion 100 nm</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.nature.com/articles/s41598-023-43813-4">e</a></td>
+<td style="text-align: center;">pH 7.7<br>30 mM calcein</td>
+<td style="text-align: center;">borate buffer<br>pH8.5</td>
+<td style="text-align: center;">sonication 2 min<br>extrusion 200 nm</td>
+<td style="text-align: center;">3000rpm-centrifugation 1h of 1 mL</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1073/pnas.0606129103">f</a></td>
+<td style="text-align: center;">60 mM calcein</td>
+<td style="text-align: center;">10 mM HEPES<br>pH 7.4<br>150 mM NaCl</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.embopress.org/doi/full/10.1038/s44318-024-00190-6">g</a></td>
+<td style="text-align: center;">pH 7.0<br>80 mM calcein</td>
+<td style="text-align: center;">20 mM HEPES<br>pH 7.0<br>140 mM NaCl<br>1 mM EDTA</td>
+<td style="text-align: center;">extrusion</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.nature.com/articles/s41467-023-39726-5">h</a></td>
+<td style="text-align: center;">50 mM phosphate buffer<br>pH 7.0<br>1 mM CoCl<sub>2</sub><br>0.8 mM calcein</td>
+<td style="text-align: center;">35 mM phosphate buffer<br>pH 7.0<br>10 mM EDTA</td>
+<td style="text-align: center;">5 cycles 液氮-温水<br>extrusion 400 nm</td>
+<td style="text-align: center;">Sephadex G -75 SEC,<br>444,000g-centrifugation 25 min</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1021/acsbiomedchemau.5c00084">i</a></td>
+<td style="text-align: center;">pH 7.4<br>80 mM calcein</td>
+<td style="text-align: center;">50 mM HEPES<br>pH 7.4<br>100 mM NaCl<br>0.3 mM EDTA</td>
+<td style="text-align: center;">3 cycles freeze-thaw<br>extrusion 100 nm</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+</tbody>
+</table>
+<h2>Additional Notes</h2>
+<h3>关于DMSO</h3>
+<p>在liposome leakage assay中，如果需要用DMSO作为外相，<strong>最好做无DMSO存在时的对照</strong>。根据经验，4% DMSO下DOPC GUV无法透过FITC （MW: 389 Da）。<a href="https://doi.org/10.3389/fmicb.2021.669709">文献</a>指出：DMSO ≤5%时不会影响他们研究的peptide引起的liposome leakage</p>
+<h3>关于calcein释放后浓度的估算</h3>
+<p>假设溶液中lipid的浓度为$C_{lipid}$，liposome内包埋的calcein浓度为$C_0$，溶液体积为$V$，liposome上每个lipid分子平均占据的面积为$A$，liposome的平均半径为$R$，最终全部释放后的calcein浓度 为$C_f$，则
+$$
+\begin{align}
+C_f &amp;=C_0 \cdot N_{liposome}\cdot \frac{4}{3}\pi R^3/V\
+&amp;= C_0 \cdot \frac{N_A ~ C_{lipid} ~ V}{2\cdot 4\pi R^2/A} \cdot \frac{\frac{4}{3}\pi R^3}{V}\
+&amp;= C_0 \cdot \frac{1}{6} N_A ~ C_{lipid} ~ A ~ R \tag{1}
+\end{align}
+$$
+<a href="https://doi.org/10.1016/j.bbamem.2012.05.006">已知</a>$A \approx 0.6 ~\mathrm{nm^2}$，设：
+$$
+C_{lipid} = x~\mathrm{mM}, ~~~ C_0=y~\mathrm{mM}, ~~~R=r\times 10^2 ~ \mathrm{nm}
+$$
+代入公式(1)，得：
+$$
+\begin{align}
+C_f &amp;= y~\mathrm{mM}\cdot \frac{1}{6}\cdot 6.02\times10^{23}\cdot x\times 10^{-3} ~\mathrm{mol/L} \cdot 0.6\times10^{-16} ~\mathrm{dm^2} \cdot r\times10^{-6}~\mathrm{dm}\
+&amp;=6.02\times10^{-3}\cdot x\cdot y \cdot r~\mathrm{mM}
+\end{align}
+$$</p>">
+
+  
+
+  <meta name="keywords" content="molecular biophysics, computational biology, structural biology, research, blog, Clint Chen">
+
+  <link rel="alternate" type="application/rss+xml" title="Clint Chen | ?????? ? ?? ? ?? | ?????? ? ?? ? ?? | 分子生物物理 · 研究 · 思考" href="">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+
+  <link rel="stylesheet" href="/assets/css/custom-styles.css">
+
+  
+  
+  
+
+  
+
+  <meta property="og:site_name" content="Clint Chen | ?????? ? ?? ? ?? | ?????? ? ?? ? ?? | 分子生物物理 · 研究 · 思考">
+
+  
+  
+
+  <meta property="og:title" content="Calcein-containing Liposome Leakage Assay Protocol | Clint Chen | ?????? ? ?? ? ?? | ?????? ? ?? ? ?? | 分子生物物理 · 研究 · 思考">
+  <meta property="og:description" content="<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - Reference</p>
+  <div style="margin: 0;">1. Hausig‐Punke, F., Richter, F., Hoernke, M., Brendel, J. C. & Traeger, A. Tracking the Endosomal Escape: A Closer Look at Calcein and Related Reporters. _Macromolecular Bioscience_ **22**, 2200167 (2022).
+1</div>
+</div>
+
+<h2>写在前面</h2>
+<p>liposome leakage assay 有一些常用的<a href="https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/technical-notes-and-product-highlights/assays-of-volume-change-membrane-fusion-and-membrane-permeability.html?utm_source=chatgpt.com">荧光组合</a>，包括：
+- ANTS / DPX
+- Tb<sup>3+</sup> / DPA
+- fluorescein derivatives (比如calcein, carboxyfluorescein) (可搭配二价金属离子使用)</p>
+<h2>Calcein 基本信息</h2>
+<ul>
+<li>calcein  = fluorescein + iminodiacetic acid (EDTA的关键部分)，所以calcein同时具有荧光和螯合作用 (<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="calcein_synthesis.png" src="/assets/img/protocols/calcein-leakage/calcein_synthesis.png" /></li>
+<li>其激发/发射谱如<a href="https://assets.thermofisher.cn/TFS-Assets/LSG/manuals/MAN0019058_CalceinAM_UG.pdf">下图</a>：激发495 nm，发射515 nm
+<img alt="calcein_spectrum.png" src="/assets/img/protocols/calcein-leakage/calcein_spectrum.png" /></li>
+<li>calcein AM是一种能穿透细胞膜进入细胞、并在细胞内形成calcein的变体</li>
+</ul>
+<h3>影响calcein 发光的因素</h3>
+<p>(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="influencing_factor_of_calcein_fluorescence.png" src="/assets/img/protocols/calcein-leakage/influencing_factor_of_calcein_fluorescence.png" /></p>
+<h4>浓度</h4>
+<ul>
+<li>通常认为，calcein在浓度大于70 mM时会完全自淬灭（但不同条件下、不同文章给出的不尽相同）(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="calcein_quenching_concentration_table.png" src="/assets/img/protocols/calcein-leakage/calcein_quenching_concentration_table.png" /></li>
+<li>荧光强度随浓度的变化如下图 (<a href="https://www.nature.com/articles/s41598-023-43813-4">A</a>, <a href="http://dx.doi.org/10.1023/a:1016832027325">B</a>, <a href="https://linkinghub.elsevier.com/retrieve/pii/S0731708598002295">C</a>)
+<img alt="calcein_fluorescence-intensity_vs_concentration.png" src="/assets/img/protocols/calcein-leakage/calcein_fluorescence-intensity_vs_concentration.png" /></li>
+</ul>
+<h4>pH</h4>
+<p>荧光强度随pH变化的变化幅度：6-carboxyfluorescein &gt; calcein &gt;sulforhodamine B
+calcain在pH4.5~10之间都能保持高荧光强度</p>
+<h4>阳离子</h4>
+<ul>
+<li>碱土金属离子（Mg<sup>2+</sup>, Ca<sup>2+</sup>等）在碱性pH下会增强calcein的荧光，而在中性pH下只影响吸收谱、不影响荧光强度</li>
+<li>过渡金属离子（Co<sup>2+</sup>, Ni<sup>2+</sup>等）在中性pH下会淬灭calcein荧光（<a href="https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/indicators-for-ca2-mg2-zn2-and-other-metal-ions/fluorescent-indicators-for-zn2-and-other-metal-ions.html">图片来源：ThermoFisher</a>）
+<img src="/assets/img/protocols/calcein-leakage/calcein_quenched_by_metal-ions.png" alt="calcein_quenched_by_metal-ions.png" width="500" style="max-width: 100%; height: auto;"></li>
+<li>在高pH下，Na<sup>+</sup>离子会提高荧光强度，而K<sup>+</sup>几乎不会改变calcein荧光性质</li>
+</ul>
+<h2>Protocol</h2>
+<p>概览(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)：
+<img alt="calcein-containing_liposome_preparation.png" src="/assets/img/protocols/calcein-leakage/calcein-containing_liposome_preparation.png" /></p>
+<ol>
+<li>将所需组分lipid吹制成膜，抽真空</li>
+<li>加入含~70 mM calcein 或者 1 mM calcein + 1 mM Co<sup>2+</sup> 的溶液，充分振荡使lipid完全溶解</li>
+</ol>
+<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 - 配制calcein 母液</p>
+  <div style="margin: 0;">- calcein酸性较强且在酸性条件下溶解性很低，因此需要用NaOH调pH、增加溶解度。实验上需要用pH计持续监测调pH的过程
+- 在没有缓冲体系存在下，稀释calcein母液，体系pH会明显降低。如果想维持pH稳定，则需要过量的缓冲物质（比如HEPES、Tris等）</div>
+</div>
+
+<ol>
+<li>（可选项：在振荡后，先进行&gt;5次的freeze-thaw cycle，据说可以提高calcein的包埋率）用extruder反复推拉&gt;20次 或者 用超声处理</li>
+</ol>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - extrusion 和 sonication 的对比</p>
+  <div style="margin: 0;">extrusion是最常见的方法，且是控制liposome尺寸最好的方法，但有[文献](https://doi.org/10.3390/ma6083294)指出：由于shape relaxation，extrusion得到的liposome尺寸随时间（以天为单位）的增加会显著减少，并且lipid的流动性会在9天后显著降低，而sonication没有这种情况。但sonication的问题在于liposome size distribution较难控制。</div>
+</div>
+
+<ol>
+<li>配制liposome外相溶液，尽量使内外等渗（<a href="https://www.sciencedirect.com/science/article/pii/S0006349522006063">70 mM calcein和110 mM NaCl大致等渗</a>），对于包埋Co<sup>2+</sup>-calcein的liposome，外相中需要含有&gt;1 mM EDTA</li>
+<li>用外相buffer过SEC柱 或 离心 或 超滤，来分离游离的calcein或者Co<sup>2+</sup>-calcein和包裹了染料的liposome</li>
+</ol>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - 分离方法对比</p>
+  <div style="margin: 0;">[文献](http://www.doi.org/10.26538/tjnpr/v6i9.6)指出：SEC会损失约40%的liposome，而1kD超滤几乎不会损失liposome；超滤会略微减小liposome的平均尺寸</div>
+</div>
+
+<ol>
+<li>预实验确定合适的liposome稀释倍数：将liposome用外相buffer稀释成不同倍数后加入96孔板（黑色、低吸附），用荧光酶标仪测加入~0.2% (v/v) Triton X-100前后的荧光强度。比较合适的情况是，加入后强度为加入前的4~5倍。通常liposome的浓度在<strong>1~100 μg/mL</strong></li>
+<li>预实验确定所研究蛋白/分子对荧光强度的影响：设计四组对照（无liposome存在）：<u>外相buffer</u>；<u>外相buffer + 蛋白/分子</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein + 蛋白/分子</u>。并且最终都加入0.2% (v/v) Triton X-100。如果有显著影响，则需考虑优化浓度、降低影响，或者更换染料。</li>
+<li>正式实验：每组至少3个对照：<u>外相buffer</u>；<u>外相buffer+liposome</u>；<u>外相buffer+liposome+蛋白/分子</u>。最终均加入0.2% (v/v) Triton X-100</li>
+<li>数据处理：对荧光强度做归一化，荧光强度最大值可以用外相buffer+liposome加Triton X-100后得到的，也可以用外相buffer+liposome+蛋白/分子加Triton X-100后得到的</li>
+</ol>
+<p>若干文章方案参考：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">文献</th>
+<th style="text-align: center;">内相</th>
+<th style="text-align: center;">外相</th>
+<th style="text-align: center;">制备liposome</th>
+<th style="text-align: center;">分离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="https://bio-protocol.org/e3690">a</a></td>
+<td style="text-align: center;">103 mM calcein</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">extrusion</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.tjnpr.org/index.php/home/article/view/1254">b</a></td>
+<td style="text-align: center;">HEPES pH7.4<br>107 mM calcein</td>
+<td style="text-align: center;">HEPES pH7.4</td>
+<td style="text-align: center;">5 cycles 液氮-60℃,<br>sonication 30min,<br>extrusion 200 nm</td>
+<td style="text-align: center;">Sephadex G -25 SEC<br>or<br>1kD-ultrafiltration 4000 rpm for 15 min (total dilution: 4096)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1074/jbc.M200429200">c</a></td>
+<td style="text-align: center;">HBS<br>90 mM calcein</td>
+<td style="text-align: center;">HBS</td>
+<td style="text-align: center;">extrusion 50~600 nm</td>
+<td style="text-align: center;">100,000g-centrifugation of 1 mL solution 45 min ×2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1016/0005-2736(95)80035-E">d</a></td>
+<td style="text-align: center;">150 mM H<sub>2</sub>BO<sub>3</sub> <br>pH 9<br>5 mM EDTA<br>5 mM KOH<br>20 mM NaCl<br>80 mM calcein</td>
+<td style="text-align: center;">150 mM H<sub>2</sub>BO<sub>3</sub> <br>pH 9<br>5 mM EDTA<br>5 mM KOH<br>140 mM NaCl</td>
+<td style="text-align: center;">extrusion 100 nm</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.nature.com/articles/s41598-023-43813-4">e</a></td>
+<td style="text-align: center;">pH 7.7<br>30 mM calcein</td>
+<td style="text-align: center;">borate buffer<br>pH8.5</td>
+<td style="text-align: center;">sonication 2 min<br>extrusion 200 nm</td>
+<td style="text-align: center;">3000rpm-centrifugation 1h of 1 mL</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1073/pnas.0606129103">f</a></td>
+<td style="text-align: center;">60 mM calcein</td>
+<td style="text-align: center;">10 mM HEPES<br>pH 7.4<br>150 mM NaCl</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.embopress.org/doi/full/10.1038/s44318-024-00190-6">g</a></td>
+<td style="text-align: center;">pH 7.0<br>80 mM calcein</td>
+<td style="text-align: center;">20 mM HEPES<br>pH 7.0<br>140 mM NaCl<br>1 mM EDTA</td>
+<td style="text-align: center;">extrusion</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.nature.com/articles/s41467-023-39726-5">h</a></td>
+<td style="text-align: center;">50 mM phosphate buffer<br>pH 7.0<br>1 mM CoCl<sub>2</sub><br>0.8 mM calcein</td>
+<td style="text-align: center;">35 mM phosphate buffer<br>pH 7.0<br>10 mM EDTA</td>
+<td style="text-align: center;">5 cycles 液氮-温水<br>extrusion 400 nm</td>
+<td style="text-align: center;">Sephadex G -75 SEC,<br>444,000g-centrifugation 25 min</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1021/acsbiomedchemau.5c00084">i</a></td>
+<td style="text-align: center;">pH 7.4<br>80 mM calcein</td>
+<td style="text-align: center;">50 mM HEPES<br>pH 7.4<br>100 mM NaCl<br>0.3 mM EDTA</td>
+<td style="text-align: center;">3 cycles freeze-thaw<br>extrusion 100 nm</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+</tbody>
+</table>
+<h2>Additional Notes</h2>
+<h3>关于DMSO</h3>
+<p>在liposome leakage assay中，如果需要用DMSO作为外相，<strong>最好做无DMSO存在时的对照</strong>。根据经验，4% DMSO下DOPC GUV无法透过FITC （MW: 389 Da）。<a href="https://doi.org/10.3389/fmicb.2021.669709">文献</a>指出：DMSO ≤5%时不会影响他们研究的peptide引起的liposome leakage</p>
+<h3>关于calcein释放后浓度的估算</h3>
+<p>假设溶液中lipid的浓度为$C_{lipid}$，liposome内包埋的calcein浓度为$C_0$，溶液体积为$V$，liposome上每个lipid分子平均占据的面积为$A$，liposome的平均半径为$R$，最终全部释放后的calcein浓度 为$C_f$，则
+$$
+\begin{align}
+C_f &amp;=C_0 \cdot N_{liposome}\cdot \frac{4}{3}\pi R^3/V\
+&amp;= C_0 \cdot \frac{N_A ~ C_{lipid} ~ V}{2\cdot 4\pi R^2/A} \cdot \frac{\frac{4}{3}\pi R^3}{V}\
+&amp;= C_0 \cdot \frac{1}{6} N_A ~ C_{lipid} ~ A ~ R \tag{1}
+\end{align}
+$$
+<a href="https://doi.org/10.1016/j.bbamem.2012.05.006">已知</a>$A \approx 0.6 ~\mathrm{nm^2}$，设：
+$$
+C_{lipid} = x~\mathrm{mM}, ~~~ C_0=y~\mathrm{mM}, ~~~R=r\times 10^2 ~ \mathrm{nm}
+$$
+代入公式(1)，得：
+$$
+\begin{align}
+C_f &amp;= y~\mathrm{mM}\cdot \frac{1}{6}\cdot 6.02\times10^{23}\cdot x\times 10^{-3} ~\mathrm{mol/L} \cdot 0.6\times10^{-16} ~\mathrm{dm^2} \cdot r\times10^{-6}~\mathrm{dm}\
+&amp;=6.02\times10^{-3}\cdot x\cdot y \cdot r~\mathrm{mM}
+\end{align}
+$$</p>">
+
+  <meta property="og:image" content="img | strip">
+
+  <meta property="og:type" content="article">
+  
+  <meta property="og:article:author" content="Clint Chen">
+  <meta property="og:article:published_time" content="2026-07-28 00:00:00">
+  <meta property="og:url" content="/2026-07-28-calcein-liposome-leakage.html">
+  <link rel="canonical" href="/2026-07-28-calcein-liposome-leakage.html">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/2026-07-28-calcein-liposome-leakage.html">
+  <link rel="canonical" href="/2026-07-28-calcein-liposome-leakage.html">
+  
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:creator" content="@">
+
+  <meta property="twitter:title" content="Calcein-containing Liposome Leakage Assay Protocol | Clint Chen | ?????? ? ?? ? ?? | ?????? ? ?? ? ?? | 分子生物物理 · 研究 · 思考">
+  <meta property="twitter:description" content="<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - Reference</p>
+  <div style="margin: 0;">1. Hausig‐Punke, F., Richter, F., Hoernke, M., Brendel, J. C. & Traeger, A. Tracking the Endosomal Escape: A Closer Look at Calcein and Related Reporters. _Macromolecular Bioscience_ **22**, 2200167 (2022).
+1</div>
+</div>
+
+<h2>写在前面</h2>
+<p>liposome leakage assay 有一些常用的<a href="https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/technical-notes-and-product-highlights/assays-of-volume-change-membrane-fusion-and-membrane-permeability.html?utm_source=chatgpt.com">荧光组合</a>，包括：
+- ANTS / DPX
+- Tb<sup>3+</sup> / DPA
+- fluorescein derivatives (比如calcein, carboxyfluorescein) (可搭配二价金属离子使用)</p>
+<h2>Calcein 基本信息</h2>
+<ul>
+<li>calcein  = fluorescein + iminodiacetic acid (EDTA的关键部分)，所以calcein同时具有荧光和螯合作用 (<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="calcein_synthesis.png" src="/assets/img/protocols/calcein-leakage/calcein_synthesis.png" /></li>
+<li>其激发/发射谱如<a href="https://assets.thermofisher.cn/TFS-Assets/LSG/manuals/MAN0019058_CalceinAM_UG.pdf">下图</a>：激发495 nm，发射515 nm
+<img alt="calcein_spectrum.png" src="/assets/img/protocols/calcein-leakage/calcein_spectrum.png" /></li>
+<li>calcein AM是一种能穿透细胞膜进入细胞、并在细胞内形成calcein的变体</li>
+</ul>
+<h3>影响calcein 发光的因素</h3>
+<p>(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="influencing_factor_of_calcein_fluorescence.png" src="/assets/img/protocols/calcein-leakage/influencing_factor_of_calcein_fluorescence.png" /></p>
+<h4>浓度</h4>
+<ul>
+<li>通常认为，calcein在浓度大于70 mM时会完全自淬灭（但不同条件下、不同文章给出的不尽相同）(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="calcein_quenching_concentration_table.png" src="/assets/img/protocols/calcein-leakage/calcein_quenching_concentration_table.png" /></li>
+<li>荧光强度随浓度的变化如下图 (<a href="https://www.nature.com/articles/s41598-023-43813-4">A</a>, <a href="http://dx.doi.org/10.1023/a:1016832027325">B</a>, <a href="https://linkinghub.elsevier.com/retrieve/pii/S0731708598002295">C</a>)
+<img alt="calcein_fluorescence-intensity_vs_concentration.png" src="/assets/img/protocols/calcein-leakage/calcein_fluorescence-intensity_vs_concentration.png" /></li>
+</ul>
+<h4>pH</h4>
+<p>荧光强度随pH变化的变化幅度：6-carboxyfluorescein &gt; calcein &gt;sulforhodamine B
+calcain在pH4.5~10之间都能保持高荧光强度</p>
+<h4>阳离子</h4>
+<ul>
+<li>碱土金属离子（Mg<sup>2+</sup>, Ca<sup>2+</sup>等）在碱性pH下会增强calcein的荧光，而在中性pH下只影响吸收谱、不影响荧光强度</li>
+<li>过渡金属离子（Co<sup>2+</sup>, Ni<sup>2+</sup>等）在中性pH下会淬灭calcein荧光（<a href="https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/indicators-for-ca2-mg2-zn2-and-other-metal-ions/fluorescent-indicators-for-zn2-and-other-metal-ions.html">图片来源：ThermoFisher</a>）
+<img src="/assets/img/protocols/calcein-leakage/calcein_quenched_by_metal-ions.png" alt="calcein_quenched_by_metal-ions.png" width="500" style="max-width: 100%; height: auto;"></li>
+<li>在高pH下，Na<sup>+</sup>离子会提高荧光强度，而K<sup>+</sup>几乎不会改变calcein荧光性质</li>
+</ul>
+<h2>Protocol</h2>
+<p>概览(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)：
+<img alt="calcein-containing_liposome_preparation.png" src="/assets/img/protocols/calcein-leakage/calcein-containing_liposome_preparation.png" /></p>
+<ol>
+<li>将所需组分lipid吹制成膜，抽真空</li>
+<li>加入含~70 mM calcein 或者 1 mM calcein + 1 mM Co<sup>2+</sup> 的溶液，充分振荡使lipid完全溶解</li>
+</ol>
+<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 - 配制calcein 母液</p>
+  <div style="margin: 0;">- calcein酸性较强且在酸性条件下溶解性很低，因此需要用NaOH调pH、增加溶解度。实验上需要用pH计持续监测调pH的过程
+- 在没有缓冲体系存在下，稀释calcein母液，体系pH会明显降低。如果想维持pH稳定，则需要过量的缓冲物质（比如HEPES、Tris等）</div>
+</div>
+
+<ol>
+<li>（可选项：在振荡后，先进行&gt;5次的freeze-thaw cycle，据说可以提高calcein的包埋率）用extruder反复推拉&gt;20次 或者 用超声处理</li>
+</ol>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - extrusion 和 sonication 的对比</p>
+  <div style="margin: 0;">extrusion是最常见的方法，且是控制liposome尺寸最好的方法，但有[文献](https://doi.org/10.3390/ma6083294)指出：由于shape relaxation，extrusion得到的liposome尺寸随时间（以天为单位）的增加会显著减少，并且lipid的流动性会在9天后显著降低，而sonication没有这种情况。但sonication的问题在于liposome size distribution较难控制。</div>
+</div>
+
+<ol>
+<li>配制liposome外相溶液，尽量使内外等渗（<a href="https://www.sciencedirect.com/science/article/pii/S0006349522006063">70 mM calcein和110 mM NaCl大致等渗</a>），对于包埋Co<sup>2+</sup>-calcein的liposome，外相中需要含有&gt;1 mM EDTA</li>
+<li>用外相buffer过SEC柱 或 离心 或 超滤，来分离游离的calcein或者Co<sup>2+</sup>-calcein和包裹了染料的liposome</li>
+</ol>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - 分离方法对比</p>
+  <div style="margin: 0;">[文献](http://www.doi.org/10.26538/tjnpr/v6i9.6)指出：SEC会损失约40%的liposome，而1kD超滤几乎不会损失liposome；超滤会略微减小liposome的平均尺寸</div>
+</div>
+
+<ol>
+<li>预实验确定合适的liposome稀释倍数：将liposome用外相buffer稀释成不同倍数后加入96孔板（黑色、低吸附），用荧光酶标仪测加入~0.2% (v/v) Triton X-100前后的荧光强度。比较合适的情况是，加入后强度为加入前的4~5倍。通常liposome的浓度在<strong>1~100 μg/mL</strong></li>
+<li>预实验确定所研究蛋白/分子对荧光强度的影响：设计四组对照（无liposome存在）：<u>外相buffer</u>；<u>外相buffer + 蛋白/分子</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein + 蛋白/分子</u>。并且最终都加入0.2% (v/v) Triton X-100。如果有显著影响，则需考虑优化浓度、降低影响，或者更换染料。</li>
+<li>正式实验：每组至少3个对照：<u>外相buffer</u>；<u>外相buffer+liposome</u>；<u>外相buffer+liposome+蛋白/分子</u>。最终均加入0.2% (v/v) Triton X-100</li>
+<li>数据处理：对荧光强度做归一化，荧光强度最大值可以用外相buffer+liposome加Triton X-100后得到的，也可以用外相buffer+liposome+蛋白/分子加Triton X-100后得到的</li>
+</ol>
+<p>若干文章方案参考：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">文献</th>
+<th style="text-align: center;">内相</th>
+<th style="text-align: center;">外相</th>
+<th style="text-align: center;">制备liposome</th>
+<th style="text-align: center;">分离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="https://bio-protocol.org/e3690">a</a></td>
+<td style="text-align: center;">103 mM calcein</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">extrusion</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.tjnpr.org/index.php/home/article/view/1254">b</a></td>
+<td style="text-align: center;">HEPES pH7.4<br>107 mM calcein</td>
+<td style="text-align: center;">HEPES pH7.4</td>
+<td style="text-align: center;">5 cycles 液氮-60℃,<br>sonication 30min,<br>extrusion 200 nm</td>
+<td style="text-align: center;">Sephadex G -25 SEC<br>or<br>1kD-ultrafiltration 4000 rpm for 15 min (total dilution: 4096)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1074/jbc.M200429200">c</a></td>
+<td style="text-align: center;">HBS<br>90 mM calcein</td>
+<td style="text-align: center;">HBS</td>
+<td style="text-align: center;">extrusion 50~600 nm</td>
+<td style="text-align: center;">100,000g-centrifugation of 1 mL solution 45 min ×2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1016/0005-2736(95)80035-E">d</a></td>
+<td style="text-align: center;">150 mM H<sub>2</sub>BO<sub>3</sub> <br>pH 9<br>5 mM EDTA<br>5 mM KOH<br>20 mM NaCl<br>80 mM calcein</td>
+<td style="text-align: center;">150 mM H<sub>2</sub>BO<sub>3</sub> <br>pH 9<br>5 mM EDTA<br>5 mM KOH<br>140 mM NaCl</td>
+<td style="text-align: center;">extrusion 100 nm</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.nature.com/articles/s41598-023-43813-4">e</a></td>
+<td style="text-align: center;">pH 7.7<br>30 mM calcein</td>
+<td style="text-align: center;">borate buffer<br>pH8.5</td>
+<td style="text-align: center;">sonication 2 min<br>extrusion 200 nm</td>
+<td style="text-align: center;">3000rpm-centrifugation 1h of 1 mL</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1073/pnas.0606129103">f</a></td>
+<td style="text-align: center;">60 mM calcein</td>
+<td style="text-align: center;">10 mM HEPES<br>pH 7.4<br>150 mM NaCl</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.embopress.org/doi/full/10.1038/s44318-024-00190-6">g</a></td>
+<td style="text-align: center;">pH 7.0<br>80 mM calcein</td>
+<td style="text-align: center;">20 mM HEPES<br>pH 7.0<br>140 mM NaCl<br>1 mM EDTA</td>
+<td style="text-align: center;">extrusion</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.nature.com/articles/s41467-023-39726-5">h</a></td>
+<td style="text-align: center;">50 mM phosphate buffer<br>pH 7.0<br>1 mM CoCl<sub>2</sub><br>0.8 mM calcein</td>
+<td style="text-align: center;">35 mM phosphate buffer<br>pH 7.0<br>10 mM EDTA</td>
+<td style="text-align: center;">5 cycles 液氮-温水<br>extrusion 400 nm</td>
+<td style="text-align: center;">Sephadex G -75 SEC,<br>444,000g-centrifugation 25 min</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1021/acsbiomedchemau.5c00084">i</a></td>
+<td style="text-align: center;">pH 7.4<br>80 mM calcein</td>
+<td style="text-align: center;">50 mM HEPES<br>pH 7.4<br>100 mM NaCl<br>0.3 mM EDTA</td>
+<td style="text-align: center;">3 cycles freeze-thaw<br>extrusion 100 nm</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+</tbody>
+</table>
+<h2>Additional Notes</h2>
+<h3>关于DMSO</h3>
+<p>在liposome leakage assay中，如果需要用DMSO作为外相，<strong>最好做无DMSO存在时的对照</strong>。根据经验，4% DMSO下DOPC GUV无法透过FITC （MW: 389 Da）。<a href="https://doi.org/10.3389/fmicb.2021.669709">文献</a>指出：DMSO ≤5%时不会影响他们研究的peptide引起的liposome leakage</p>
+<h3>关于calcein释放后浓度的估算</h3>
+<p>假设溶液中lipid的浓度为$C_{lipid}$，liposome内包埋的calcein浓度为$C_0$，溶液体积为$V$，liposome上每个lipid分子平均占据的面积为$A$，liposome的平均半径为$R$，最终全部释放后的calcein浓度 为$C_f$，则
+$$
+\begin{align}
+C_f &amp;=C_0 \cdot N_{liposome}\cdot \frac{4}{3}\pi R^3/V\
+&amp;= C_0 \cdot \frac{N_A ~ C_{lipid} ~ V}{2\cdot 4\pi R^2/A} \cdot \frac{\frac{4}{3}\pi R^3}{V}\
+&amp;= C_0 \cdot \frac{1}{6} N_A ~ C_{lipid} ~ A ~ R \tag{1}
+\end{align}
+$$
+<a href="https://doi.org/10.1016/j.bbamem.2012.05.006">已知</a>$A \approx 0.6 ~\mathrm{nm^2}$，设：
+$$
+C_{lipid} = x~\mathrm{mM}, ~~~ C_0=y~\mathrm{mM}, ~~~R=r\times 10^2 ~ \mathrm{nm}
+$$
+代入公式(1)，得：
+$$
+\begin{align}
+C_f &amp;= y~\mathrm{mM}\cdot \frac{1}{6}\cdot 6.02\times10^{23}\cdot x\times 10^{-3} ~\mathrm{mol/L} \cdot 0.6\times10^{-16} ~\mathrm{dm^2} \cdot r\times10^{-6}~\mathrm{dm}\
+&amp;=6.02\times10^{-3}\cdot x\cdot y \cdot r~\mathrm{mM}
+\end{align}
+$$</p>">
+
+  <meta name="twitter:image" content="img | strip">
+
+  
+
+
+  
+
+  
+  
+
+  
+
+</head>
+
+
+<body>
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular">
+
+  <a class="navbar-brand" href="">Clint Chen | ?????? ? ?? ? ?? | ?????? ? ?? ? ?? | 分子生物物理 · 研究 · 思考</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+      
+              
+            </div>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href=""></a>
+          </li>
+        
+      
+      <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li>
+    </ul>
+  </div>
+
+  
+
+  <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/avatar-icon.png" />
+        </a>
+      </div>
+    </div>
+
+</nav>
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: '/assets/data/searchcorpus.json' 
+    });
+  </script>
+</div>
+
+
+
+  
+
+
+
+<main class="container-md">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+
+      
+        </div>
+      
+
+      
+
+      <div class="blog-post">
+        <div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - Reference</p>
+  <div style="margin: 0;">1. Hausig‐Punke, F., Richter, F., Hoernke, M., Brendel, J. C. & Traeger, A. Tracking the Endosomal Escape: A Closer Look at Calcein and Related Reporters. _Macromolecular Bioscience_ **22**, 2200167 (2022).
+1</div>
+</div>
+
+<h2>写在前面</h2>
+<p>liposome leakage assay 有一些常用的<a href="https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/technical-notes-and-product-highlights/assays-of-volume-change-membrane-fusion-and-membrane-permeability.html?utm_source=chatgpt.com">荧光组合</a>，包括：
+- ANTS / DPX
+- Tb<sup>3+</sup> / DPA
+- fluorescein derivatives (比如calcein, carboxyfluorescein) (可搭配二价金属离子使用)</p>
+<h2>Calcein 基本信息</h2>
+<ul>
+<li>calcein  = fluorescein + iminodiacetic acid (EDTA的关键部分)，所以calcein同时具有荧光和螯合作用 (<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="calcein_synthesis.png" src="/assets/img/protocols/calcein-leakage/calcein_synthesis.png" /></li>
+<li>其激发/发射谱如<a href="https://assets.thermofisher.cn/TFS-Assets/LSG/manuals/MAN0019058_CalceinAM_UG.pdf">下图</a>：激发495 nm，发射515 nm
+<img alt="calcein_spectrum.png" src="/assets/img/protocols/calcein-leakage/calcein_spectrum.png" /></li>
+<li>calcein AM是一种能穿透细胞膜进入细胞、并在细胞内形成calcein的变体</li>
+</ul>
+<h3>影响calcein 发光的因素</h3>
+<p>(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="influencing_factor_of_calcein_fluorescence.png" src="/assets/img/protocols/calcein-leakage/influencing_factor_of_calcein_fluorescence.png" /></p>
+<h4>浓度</h4>
+<ul>
+<li>通常认为，calcein在浓度大于70 mM时会完全自淬灭（但不同条件下、不同文章给出的不尽相同）(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)
+<img alt="calcein_quenching_concentration_table.png" src="/assets/img/protocols/calcein-leakage/calcein_quenching_concentration_table.png" /></li>
+<li>荧光强度随浓度的变化如下图 (<a href="https://www.nature.com/articles/s41598-023-43813-4">A</a>, <a href="http://dx.doi.org/10.1023/a:1016832027325">B</a>, <a href="https://linkinghub.elsevier.com/retrieve/pii/S0731708598002295">C</a>)
+<img alt="calcein_fluorescence-intensity_vs_concentration.png" src="/assets/img/protocols/calcein-leakage/calcein_fluorescence-intensity_vs_concentration.png" /></li>
+</ul>
+<h4>pH</h4>
+<p>荧光强度随pH变化的变化幅度：6-carboxyfluorescein &gt; calcein &gt;sulforhodamine B
+calcain在pH4.5~10之间都能保持高荧光强度</p>
+<h4>阳离子</h4>
+<ul>
+<li>碱土金属离子（Mg<sup>2+</sup>, Ca<sup>2+</sup>等）在碱性pH下会增强calcein的荧光，而在中性pH下只影响吸收谱、不影响荧光强度</li>
+<li>过渡金属离子（Co<sup>2+</sup>, Ni<sup>2+</sup>等）在中性pH下会淬灭calcein荧光（<a href="https://www.thermofisher.cn/cn/zh/home/references/molecular-probes-the-handbook/indicators-for-ca2-mg2-zn2-and-other-metal-ions/fluorescent-indicators-for-zn2-and-other-metal-ions.html">图片来源：ThermoFisher</a>）
+<img src="/assets/img/protocols/calcein-leakage/calcein_quenched_by_metal-ions.png" alt="calcein_quenched_by_metal-ions.png" width="500" style="max-width: 100%; height: auto;"></li>
+<li>在高pH下，Na<sup>+</sup>离子会提高荧光强度，而K<sup>+</sup>几乎不会改变calcein荧光性质</li>
+</ul>
+<h2>Protocol</h2>
+<p>概览(<a href="Calcein-containing liposome leakage assay#3eec2d">Ref.1</a>)：
+<img alt="calcein-containing_liposome_preparation.png" src="/assets/img/protocols/calcein-leakage/calcein-containing_liposome_preparation.png" /></p>
+<ol>
+<li>将所需组分lipid吹制成膜，抽真空</li>
+<li>加入含~70 mM calcein 或者 1 mM calcein + 1 mM Co<sup>2+</sup> 的溶液，充分振荡使lipid完全溶解</li>
+</ol>
+<div class="callout callout-tip" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 - 配制calcein 母液</p>
+  <div style="margin: 0;">- calcein酸性较强且在酸性条件下溶解性很低，因此需要用NaOH调pH、增加溶解度。实验上需要用pH计持续监测调pH的过程
+- 在没有缓冲体系存在下，稀释calcein母液，体系pH会明显降低。如果想维持pH稳定，则需要过量的缓冲物质（比如HEPES、Tris等）</div>
+</div>
+
+<ol>
+<li>（可选项：在振荡后，先进行&gt;5次的freeze-thaw cycle，据说可以提高calcein的包埋率）用extruder反复推拉&gt;20次 或者 用超声处理</li>
+</ol>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - extrusion 和 sonication 的对比</p>
+  <div style="margin: 0;">extrusion是最常见的方法，且是控制liposome尺寸最好的方法，但有[文献](https://doi.org/10.3390/ma6083294)指出：由于shape relaxation，extrusion得到的liposome尺寸随时间（以天为单位）的增加会显著减少，并且lipid的流动性会在9天后显著降低，而sonication没有这种情况。但sonication的问题在于liposome size distribution较难控制。</div>
+</div>
+
+<ol>
+<li>配制liposome外相溶液，尽量使内外等渗（<a href="https://www.sciencedirect.com/science/article/pii/S0006349522006063">70 mM calcein和110 mM NaCl大致等渗</a>），对于包埋Co<sup>2+</sup>-calcein的liposome，外相中需要含有&gt;1 mM EDTA</li>
+<li>用外相buffer过SEC柱 或 离心 或 超滤，来分离游离的calcein或者Co<sup>2+</sup>-calcein和包裹了染料的liposome</li>
+</ol>
+<div class="callout callout-note" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 - 分离方法对比</p>
+  <div style="margin: 0;">[文献](http://www.doi.org/10.26538/tjnpr/v6i9.6)指出：SEC会损失约40%的liposome，而1kD超滤几乎不会损失liposome；超滤会略微减小liposome的平均尺寸</div>
+</div>
+
+<ol>
+<li>预实验确定合适的liposome稀释倍数：将liposome用外相buffer稀释成不同倍数后加入96孔板（黑色、低吸附），用荧光酶标仪测加入~0.2% (v/v) Triton X-100前后的荧光强度。比较合适的情况是，加入后强度为加入前的4~5倍。通常liposome的浓度在<strong>1~100 μg/mL</strong></li>
+<li>预实验确定所研究蛋白/分子对荧光强度的影响：设计四组对照（无liposome存在）：<u>外相buffer</u>；<u>外相buffer + 蛋白/分子</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein</u>；<u>外相buffer + calcein/Co<sup>2+</sup>-calcein + 蛋白/分子</u>。并且最终都加入0.2% (v/v) Triton X-100。如果有显著影响，则需考虑优化浓度、降低影响，或者更换染料。</li>
+<li>正式实验：每组至少3个对照：<u>外相buffer</u>；<u>外相buffer+liposome</u>；<u>外相buffer+liposome+蛋白/分子</u>。最终均加入0.2% (v/v) Triton X-100</li>
+<li>数据处理：对荧光强度做归一化，荧光强度最大值可以用外相buffer+liposome加Triton X-100后得到的，也可以用外相buffer+liposome+蛋白/分子加Triton X-100后得到的</li>
+</ol>
+<p>若干文章方案参考：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">文献</th>
+<th style="text-align: center;">内相</th>
+<th style="text-align: center;">外相</th>
+<th style="text-align: center;">制备liposome</th>
+<th style="text-align: center;">分离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="https://bio-protocol.org/e3690">a</a></td>
+<td style="text-align: center;">103 mM calcein</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">extrusion</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.tjnpr.org/index.php/home/article/view/1254">b</a></td>
+<td style="text-align: center;">HEPES pH7.4<br>107 mM calcein</td>
+<td style="text-align: center;">HEPES pH7.4</td>
+<td style="text-align: center;">5 cycles 液氮-60℃,<br>sonication 30min,<br>extrusion 200 nm</td>
+<td style="text-align: center;">Sephadex G -25 SEC<br>or<br>1kD-ultrafiltration 4000 rpm for 15 min (total dilution: 4096)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1074/jbc.M200429200">c</a></td>
+<td style="text-align: center;">HBS<br>90 mM calcein</td>
+<td style="text-align: center;">HBS</td>
+<td style="text-align: center;">extrusion 50~600 nm</td>
+<td style="text-align: center;">100,000g-centrifugation of 1 mL solution 45 min ×2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1016/0005-2736(95)80035-E">d</a></td>
+<td style="text-align: center;">150 mM H<sub>2</sub>BO<sub>3</sub> <br>pH 9<br>5 mM EDTA<br>5 mM KOH<br>20 mM NaCl<br>80 mM calcein</td>
+<td style="text-align: center;">150 mM H<sub>2</sub>BO<sub>3</sub> <br>pH 9<br>5 mM EDTA<br>5 mM KOH<br>140 mM NaCl</td>
+<td style="text-align: center;">extrusion 100 nm</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.nature.com/articles/s41598-023-43813-4">e</a></td>
+<td style="text-align: center;">pH 7.7<br>30 mM calcein</td>
+<td style="text-align: center;">borate buffer<br>pH8.5</td>
+<td style="text-align: center;">sonication 2 min<br>extrusion 200 nm</td>
+<td style="text-align: center;">3000rpm-centrifugation 1h of 1 mL</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1073/pnas.0606129103">f</a></td>
+<td style="text-align: center;">60 mM calcein</td>
+<td style="text-align: center;">10 mM HEPES<br>pH 7.4<br>150 mM NaCl</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.embopress.org/doi/full/10.1038/s44318-024-00190-6">g</a></td>
+<td style="text-align: center;">pH 7.0<br>80 mM calcein</td>
+<td style="text-align: center;">20 mM HEPES<br>pH 7.0<br>140 mM NaCl<br>1 mM EDTA</td>
+<td style="text-align: center;">extrusion</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://www.nature.com/articles/s41467-023-39726-5">h</a></td>
+<td style="text-align: center;">50 mM phosphate buffer<br>pH 7.0<br>1 mM CoCl<sub>2</sub><br>0.8 mM calcein</td>
+<td style="text-align: center;">35 mM phosphate buffer<br>pH 7.0<br>10 mM EDTA</td>
+<td style="text-align: center;">5 cycles 液氮-温水<br>extrusion 400 nm</td>
+<td style="text-align: center;">Sephadex G -75 SEC,<br>444,000g-centrifugation 25 min</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://doi.org/10.1021/acsbiomedchemau.5c00084">i</a></td>
+<td style="text-align: center;">pH 7.4<br>80 mM calcein</td>
+<td style="text-align: center;">50 mM HEPES<br>pH 7.4<br>100 mM NaCl<br>0.3 mM EDTA</td>
+<td style="text-align: center;">3 cycles freeze-thaw<br>extrusion 100 nm</td>
+<td style="text-align: center;">Sephadex G -50 SEC</td>
+</tr>
+</tbody>
+</table>
+<h2>Additional Notes</h2>
+<h3>关于DMSO</h3>
+<p>在liposome leakage assay中，如果需要用DMSO作为外相，<strong>最好做无DMSO存在时的对照</strong>。根据经验，4% DMSO下DOPC GUV无法透过FITC （MW: 389 Da）。<a href="https://doi.org/10.3389/fmicb.2021.669709">文献</a>指出：DMSO ≤5%时不会影响他们研究的peptide引起的liposome leakage</p>
+<h3>关于calcein释放后浓度的估算</h3>
+<p>假设溶液中lipid的浓度为$C_{lipid}$，liposome内包埋的calcein浓度为$C_0$，溶液体积为$V$，liposome上每个lipid分子平均占据的面积为$A$，liposome的平均半径为$R$，最终全部释放后的calcein浓度 为$C_f$，则
+$$
+\begin{align}
+C_f &amp;=C_0 \cdot N_{liposome}\cdot \frac{4}{3}\pi R^3/V\
+&amp;= C_0 \cdot \frac{N_A ~ C_{lipid} ~ V}{2\cdot 4\pi R^2/A} \cdot \frac{\frac{4}{3}\pi R^3}{V}\
+&amp;= C_0 \cdot \frac{1}{6} N_A ~ C_{lipid} ~ A ~ R \tag{1}
+\end{align}
+$$
+<a href="https://doi.org/10.1016/j.bbamem.2012.05.006">已知</a>$A \approx 0.6 ~\mathrm{nm^2}$，设：
+$$
+C_{lipid} = x~\mathrm{mM}, ~~~ C_0=y~\mathrm{mM}, ~~~R=r\times 10^2 ~ \mathrm{nm}
+$$
+代入公式(1)，得：
+$$
+\begin{align}
+C_f &amp;= y~\mathrm{mM}\cdot \frac{1}{6}\cdot 6.02\times10^{23}\cdot x\times 10^{-3} ~\mathrm{mol/L} \cdot 0.6\times10^{-16} ~\mathrm{dm^2} \cdot r\times10^{-6}~\mathrm{dm}\
+&amp;=6.02\times10^{-3}\cdot x\cdot y \cdot r~\mathrm{mM}
+\end{align}
+$$</p>
+      </div>
+
+      
+
+      
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        
+      </ul>
+      </div>
+    <!-- End static comments -->
+    <!-- Start new comment form -->
+    <div class="page__comments-form">
+      <h3 class="page__comments-title"></h3>
+      <p class="small"> <span class="required">*</span></p>
+      <form id="new_comment" class="page__comments-form js-form form" method="post">
+        <div class="form-group">
+          <label for="comment-form-message"> <small class="required">*</small></label><br>
+          <textarea type="text" rows="12" cols="36" id="comment-form-message" name="fields[message]" tabindex="1"></textarea>
+          <div class="small form-text"><a href="https://daringfireball.net/projects/markdown/"></a></div>
+        </div>
+        <div class="form-group">
+          <label for="comment-form-name"> <small class="required">*</small></label>
+          <input type="text" id="comment-form-name" name="fields[name]" tabindex="2" />
+        </div>
+        <div class="form-group">
+          <label for="comment-form-email"> <small class="required">*</small></label>
+          <input type="email" id="comment-form-email" name="fields[email]" tabindex="3" />
+        </div>
+        <div class="form-group">
+          <label for="comment-form-url"></label>
+          <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
+        </div>
+        <div class="form-group d-none" style="display: none;">
+          <input type="hidden" name="options[origin]" value="/2026-07-28-calcein-liposome-leakage.html">
+          <input type="hidden" name="options[slug]" value="">
+          <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
+          <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
+          
+          
+        </div>
+        <!-- Start comment form alert messaging -->
+        <p class="d-none js-notice alert">
+          <strong class="js-notice-text-success d-none"></strong>
+          <strong class="js-notice-text-failure d-none"></strong>
+        </p>
+        <!-- End comment form alert messaging -->
+        
+        <div class="form-group">
+          <button type="submit" id="comment-form-submit" tabindex="5" class="btn btn-primary btn-lg"></button>
+          <button type="submit" id="comment-form-submitted" tabindex="5" class="btn btn-primary btn-lg d-none" disabled></button>
+        </div>
+      </form>
+    </div>
+    <!-- End new comment form -->
+    <!-- Load reCaptcha if site key is set -->
+    
+  </div>
+
+  <!-- Load script to handle comment form submission -->
+  <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+  <script>
+    if (typeof jQuery == 'undefined') {
+      document.write('<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></scr' + 'ipt>');
+    }
+  </script>
+  <script src=""></script>
+</div>
+
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links">
+
+
+
+</ul>
+
+      
+      <p class="copyright text-muted">
+      Clint Chen
+        &nbsp;&bull;&nbsp;
+      
+
+      &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="">flashclint.github.io</a>
+        </span>
+      
+
+      
+      
+
+      
+
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+
+<!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    <script src="/assets/js/beautifuljekyll.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
