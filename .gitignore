@@ -11,3 +11,11 @@ ehthumbs.db
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
+_preview/
+_preview2/
+msys64/
+preview_*.py
+serve_preview.py
+run_server.py
+__pycache__/
+*.pyc
