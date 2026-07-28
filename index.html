@@ -5,29 +5,6 @@ subtitle: Molecular Biophysicist | PhD Candidate | Football Fan
 ---
 
 <h2> About Me </h2>
-
-I am <strong>Clint Chen</strong>, a PhD student at the <a href="https://english.iop.cas.cn/">Institute of Physics, Chinese Academy of Sciences</a> in <a href="https://english.iop.cas.cn/pe/faculty/?id=4432">Prof. Fang Jiao's lab</a>. I study <strong>single-molecule biophysics</strong>, <strong>membrane protein dynamics</strong>, and <strong>protein-membrane interactions</strong>.
-
-Beyond the lab, I enjoy playing football, watching the Premier League (go Manchester City!), travelling, hiking, and reading.
-
+<p>I am Clint Chen, a PhD student at the Institute of Physics, Chinese Academy of Sciences.</p>
+<p>Beyond the lab, I enjoy playing football (go Manchester City!), travelling, hiking, and reading.</p>
 <h2> Recent Updates </h2>
-
-{% for post in site.posts limit:5 %}
-<div class="post-preview">
-  <a href="{{ post.url }}">
-    <h3 class="post-title">{{ post.title }}</h3>
-    {% if post.subtitle %}
-    <h4 class="post-subtitle">{{ post.subtitle }}</h4>
-    {% endif %}
-  </a>
-  <p class="post-meta">Posted on {{ post.date | date: "%B %-d, %Y" }}</p>
-  {% if post.tags.size > 0 %}
-  <div class="blog-tags">
-    <span>Tags:</span>
-    {% for tag in post.tags %}
-    <a href="/tags#{{ tag }}">{{ tag }}</a>
-    {% endfor %}
-  </div>
-  {% endif %}
-</div>
-{% endfor %}
