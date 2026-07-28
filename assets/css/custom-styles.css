@@ -92,8 +92,8 @@
   background: #dceefb;
 }
 
-.toc-h2 { padding-left: 0; }
-.toc-h3 { padding-left: 14px; font-size: 0.9em; }
+
+
 
 @media (max-width: 991.98px) {
   .toc-column { display: none; }
@@ -145,3 +145,8 @@
 .callout > *:not(summary) p:last-child {
   margin-bottom: 0;
 }
+
+
+.toc-h2 { padding-left: 0; }
+.toc-h3 { padding-left: 16px; font-size: 0.93em; }
+.toc-h4 { padding-left: 32px; font-size: 0.88em; }
