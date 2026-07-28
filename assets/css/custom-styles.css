@@ -28,16 +28,18 @@
 
 
 
+
+
 /* ===== Table of Contents Sidebar ===== */
 .toc-column {
   position: relative;
-  align-self: flex-start;
+  height: 100%;
 }
 
 .toc-sidebar {
   position: sticky;
   top: 90px;
-  max-height: calc(100vh - 110px);
+  max-height: calc(100vh - 120px);
   overflow-y: auto;
   background: #ffffff;
   border: 1px solid #d4e8f5;
@@ -51,7 +53,7 @@
 .toc-header {
   font-weight: 600;
   font-size: 0.85em;
-  color: #0369a1;
+  color: #2C86D9;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -81,27 +83,19 @@
 }
 
 .toc-list a:hover {
-  color: #b45309;
-  background: #fef3c7;
+  color: #2C86D9;
+  background: #e8f4fd;
 }
 
 .toc-list li.active > a {
-  color: #b45309;
+  color: #2C86D9;
   font-weight: 600;
-  background: #fde68a;
+  background: #dceefb;
 }
 
-.toc-h2 {
-  padding-left: 0;
-}
-
-.toc-h3 {
-  padding-left: 14px;
-  font-size: 0.9em;
-}
+.toc-h2 { padding-left: 0; }
+.toc-h3 { padding-left: 14px; font-size: 0.9em; }
 
 @media (max-width: 991.98px) {
-  .toc-column {
-    display: none;
-  }
+  .toc-column { display: none; }
 }

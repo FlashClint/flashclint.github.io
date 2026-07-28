@@ -6,11 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var header = document.createElement('div');
     header.className = 'callout-header';
-    header.setAttribute('onclick', 'toggleCallout(this)');
 
     var toggle = document.createElement('span');
     toggle.className = 'callout-toggle';
-    toggle.textContent = '\u25be';
+    toggle.textContent = "\u25be";
 
     var titleSpan = document.createElement('span');
     titleSpan.className = 'callout-title-text';
@@ -28,8 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
       nodes.push(next);
       next = next.nextElementSibling;
     }
-
-    // Move nodes into body (removes from original position)
     nodes.forEach(function(n) { body.appendChild(n); });
 
     callout.insertBefore(header, title);
@@ -37,17 +34,18 @@ document.addEventListener('DOMContentLoaded', function() {
     callout.removeChild(title);
 
     callout.classList.add('collapsible');
+
+    // Use addEventListener for toggle
+    header.addEventListener('click', function() {
+      var b = this.nextElementSibling;
+      var ic = this.querySelector('.callout-toggle');
+      if (b.classList.contains('collapsed')) {
+        b.classList.remove('collapsed');
+        ic.textContent = "\u25be";
+      } else {
+        b.classList.add('collapsed');
+        ic.textContent = "\u25b8";
+      }
+    });
   });
 });
-
-function toggleCallout(header) {
-  var body = header.nextElementSibling;
-  var icon = header.querySelector('.callout-toggle');
-  if (body.classList.contains('collapsed')) {
-    body.classList.remove('collapsed');
-    icon.textContent = '\u25be';
-  } else {
-    body.classList.add('collapsed');
-    icon.textContent = '\u25b8';
-  }
-}
