@@ -6,7 +6,10 @@ layout: base
 
 <main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
   <div class="row">
-    <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
+    <div class="col-xl-2 col-lg-2 d-none d-lg-block toc-column">
+      {% include toc-sidebar.html %}
+    </div>
+    <div class="{% if page.full-width %} col {% else %} col-xl-8 col-lg-10 {% endif %}">
 
       {% if page.gh-repo %}
         {% assign gh_split =  page.gh-repo | split:'/'  %}
@@ -85,4 +88,5 @@ layout: base
       {% include comments.html %}
     </div>
   </div>
+  <script src="/assets/js/toc.js"></script>
 </main>
