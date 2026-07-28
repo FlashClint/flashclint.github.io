@@ -134,20 +134,9 @@
   background: rgba(0,0,0,0.03);
 }
 
-.callout summary::before {
-  content: "\u25b8";
-  display: inline-block;
-  width: 18px;
-  font-size: 0.85em;
-  color: #888;
-  margin-right: 4px;
-  transition: transform 0.2s ease;
-  flex-shrink: 0;
-}
 
-.callout[open] summary::before {
-  content: "\u25be";
-}
+
+
 
 .callout > *:not(summary) {
   padding: 0 16px 12px 38px;
