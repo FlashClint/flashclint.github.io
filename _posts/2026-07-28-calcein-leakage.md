@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Calcein-containing Liposome Leakage Assay Protocol"
+title: "Calcein-containing Liposome Leakage Assay"
 date: 2026-07-28
-tags: [protocols, research-notes, liposome, membrane]
+tags: [protocols, liposome]
 mathjax: true
 comments: true
 ---

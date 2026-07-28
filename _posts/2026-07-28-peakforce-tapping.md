@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "PeakForce Tapping AFM Protocol"
+title: "PeakForce Tapping AFM"
 date: 2026-07-28
-tags: [protocols, research-notes, AFM, biophysics]
+tags: [protocols, AFM]
 mathjax: true
 comments: true
 ---
