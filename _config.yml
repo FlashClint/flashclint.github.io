@@ -25,8 +25,8 @@ navbar-links:
   About: "aboutme"
   Research: "research"
   Blog:
-    - Protocols: "tag/protocols"
-    - Research Notes: "tag/research-notes"
+    - Protocols: "/tags#protocols"
+    - Research Notes: "/tags#research-notes"
   Collections: "collections"
 
 ################
@@ -243,7 +243,6 @@ paginate_path: "/blog/page:num/"
 
 kramdown:
   input: GFM
-  math_engine: mathjax
   math_engine: mathjax
 
 # Default YAML values (more information on Jekyll's site)

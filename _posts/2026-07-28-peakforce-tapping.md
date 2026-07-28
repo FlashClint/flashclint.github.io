@@ -12,8 +12,8 @@ comments: true
 	- 对于生物样品，一般选择 0.01~0.5 N/m (from <span style="background:rgba(240, 107, 5, 0.2)">Dufrene & Muller, Nat. Methods (2013)</span>)
 	- 对于生物样品，在不知道样品模量时，可先尝试0.1N/m (from <span style="background:rgba(240, 107, 5, 0.2)">Alice Pyne</span> & <span style="background:rgba(240, 107, 5, 0.2)">Muller, Nat. Protoc (2014)</span>)
 - 液相f (一般为气相的1/3)要显著大于 (大于5倍(<span style="background:rgba(240, 107, 5, 0.2)">Dufrene & Muller, Nat. Methods (2013)</span>)) PFT的工作频率(1~2kHz)，防止工作时因为接近探针共振频率、探针被激励，产生inertia effect &  hydrodynamic drgging，对成像产生影响
-	- 因为$Q \sim f/\Delta f$，low Q 意味着，$\Delta f$较大，悬臂梁在远离共振频率较远时也能被激励
-	- 对于快速成像，需要用$f>100~kHz$的悬臂梁
+	- 因为\(Q \sim f/\Delta f\)，low Q 意味着，\(\Delta f\)较大，悬臂梁在远离共振频率较远时也能被激励
+	- 对于快速成像，需要用\(f>100~kHz\)的悬臂梁
 - force sensitivity尽量高，但存在tradeoff，即 high force sensitivity 往往对应 high Q-factor，而high Q-factor对快速成像不利(from <span style="background:rgba(240, 107, 5, 0.2)">Dufrene & Muller, Nat. Methods (2013)</span>)
 - 有金属镀层的探针可能会有较大的drift，影响力控制的精度
 - **钝针通常不会变尖，但尖针会逐渐变尖** (from <span style="background:rgba(240, 107, 5, 0.2)">Muller, Nat. Protoc (2014)</span>)
@@ -85,7 +85,7 @@ comments: true
 
 #### Setpoint
 - 小力可能会导致力曲线噪声较大，此时可以提高力来提高信噪比
-- **开始扫描后一定要修改 approach setpoint，使其$\le$ imaging setpoint**，因为当改变peak force amplitude, lift height, sync distance或者用autoconfig时，都会触发tip engage
+- **开始扫描后一定要修改 approach setpoint，使其\(\le\) imaging setpoint**，因为当改变peak force amplitude, lift height, sync distance或者用autoconfig时，都会触发tip engage
 
 #### Gain
 **目标：找到系统的那个最优ratio between I gain and P gain**
@@ -112,7 +112,7 @@ comments: true
 	2. Sync Distance New & QNM
 	3. Lift Height (下策：Auto Config)
 	4. 大范围扫描+调gain+可能需要增加setpoint(+ 调gain)
-	5. zoom in 到小范围，增加pixel数，使得resolution $\le$ ~0.5 nm
+	5. zoom in 到小范围，增加pixel数，使得resolution \(\le\) ~0.5 nm
 	6. 减小setpoint (+ 调gain)
 - 从大范围到小范围：
 	- 大范围：scan rate: 1~2 Hz, Peakforce amplitude: 40~60 nm <font color="#245bdb">(compensate for large obstacles and the tilt of the support)</font>
