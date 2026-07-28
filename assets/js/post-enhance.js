@@ -4,22 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var title = callout.querySelector('p');
     if (!title) return;
 
-    var header = document.createElement('div');
-    header.className = 'callout-header';
+    var details = document.createElement('details');
+    details.className = callout.className;
+    var st = callout.style.cssText;
+    st = st.replace(/padding[^;]+;/g, '').replace(/border-radius[^;]+;/g, '');
+    details.style.cssText = st;
 
-    var toggle = document.createElement('span');
-    toggle.className = 'callout-toggle';
-    toggle.textContent = "\u25be";
-
-    var titleSpan = document.createElement('span');
-    titleSpan.className = 'callout-title-text';
-    titleSpan.innerHTML = title.innerHTML;
-
-    header.appendChild(toggle);
-    header.appendChild(titleSpan);
-
-    var body = document.createElement('div');
-    body.className = 'callout-body';
+    var summary = document.createElement('summary');
+    summary.className = 'callout-summary';
+    summary.innerHTML = title.innerHTML;
 
     var nodes = [];
     var next = title.nextElementSibling;
@@ -27,25 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
       nodes.push(next);
       next = next.nextElementSibling;
     }
-    nodes.forEach(function(n) { body.appendChild(n); });
 
-    callout.insertBefore(header, title);
-    callout.insertBefore(body, title.nextSibling);
-    callout.removeChild(title);
+    details.appendChild(summary);
+    nodes.forEach(function(n) { details.appendChild(n); });
 
-    callout.classList.add('collapsible');
-
-    // Use addEventListener for toggle
-    header.addEventListener('click', function() {
-      var b = this.nextElementSibling;
-      var ic = this.querySelector('.callout-toggle');
-      if (b.classList.contains('collapsed')) {
-        b.classList.remove('collapsed');
-        ic.textContent = "\u25be";
-      } else {
-        b.classList.add('collapsed');
-        ic.textContent = "\u25b8";
-      }
-    });
+    callout.parentNode.replaceChild(details, callout);
   });
 });
