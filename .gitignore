@@ -1,4 +1,4 @@
-# project
+﻿# project
 _site
 .sass-cache
 .vagrant
@@ -14,8 +14,6 @@ beautiful-jekyll-theme-*.gem
 _preview/
 _preview2/
 msys64/
-preview_*.py
-serve_preview.py
-run_server.py
 __pycache__/
 *.pyc
+
