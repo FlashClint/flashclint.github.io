@@ -92,7 +92,7 @@ calcain在pH4.5~10之间都能保持高荧光强度
 在liposome leakage assay中，如果需要用DMSO作为外相，**最好做无DMSO存在时的对照**。根据经验，4% DMSO下DOPC GUV无法透过FITC （MW: 389 Da）。[文献](https://doi.org/10.3389/fmicb.2021.669709)指出：DMSO ≤5%时不会影响他们研究的peptide引起的liposome leakage
 
 ### 关于calcein释放后浓度的估算
-假设溶液中lipid的浓度为\(C_{lipid}\)，liposome内包埋的calcein浓度为\(C_0\)，溶液体积为\(V\)，liposome上每个lipid分子平均占据的面积为\(A\)，liposome的平均半径为\(R\)，最终全部释放后的calcein浓度 为\(C_f\)，则
+假设溶液中lipid的浓度为$C_{lipid}$，liposome内包埋的calcein浓度为$C_0$，溶液体积为$V$，liposome上每个lipid分子平均占据的面积为$A$，liposome的平均半径为$R$，最终全部释放后的calcein浓度 为$C_f$，则
 $$
 \begin{align}
 C_f &=C_0 \cdot N_{liposome}\cdot \frac{4}{3}\pi R^3/V\\
@@ -100,7 +100,7 @@ C_f &=C_0 \cdot N_{liposome}\cdot \frac{4}{3}\pi R^3/V\\
 &= C_0 \cdot \frac{1}{6} N_A ~ C_{lipid} ~ A ~ R \tag{1}
 \end{align}
 $$
-[已知](https://doi.org/10.1016/j.bbamem.2012.05.006)\(A \approx 0.6 ~\mathrm{nm^2}\)，设：
+[已知](https://doi.org/10.1016/j.bbamem.2012.05.006)$A \approx 0.6 ~\mathrm{nm^2}$，设：
 $$
 C_{lipid} = x~\mathrm{mM}, ~~~ C_0=y~\mathrm{mM}, ~~~R=r\times 10^2 ~ \mathrm{nm}
 $$
