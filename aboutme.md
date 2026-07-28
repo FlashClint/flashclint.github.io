@@ -10,11 +10,9 @@ I am a PhD student at the <a href="https://english.iop.cas.cn/">Institute of Phy
 
 - 🔬**High-speed bioSPM** — Scanning nanoscale dynamic events with high spatiotemporal resolution
 - 🧬**Single-molecule biophysics** — Investigating individual biomolecules to uncover mechanisms hidden in ensemble measurements
-- 🕐**Membrane protein dynamics** — Understanding how membrane proteins function and interact within lipid environments
-- 🍥**Protein-membrane interactions** — Exploring the biophysical principles of protein-membrane engagement
+- 🍥**Membrane protein dynamics & Protein-membrane interactions** — Understanding how membrane proteins function and interact within lipid environments
 
 **Beyond the Lab**
 
 - ⚽ Football (Premier League, Manchester City fan)
 - 🏔️ Travelling and hiking
-- 📚 Reading and learning
