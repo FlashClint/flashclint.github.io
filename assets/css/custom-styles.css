@@ -150,3 +150,85 @@
 .toc-h2 { padding-left: 0; }
 .toc-h3 { padding-left: 16px; font-size: 0.93em; }
 .toc-h4 { padding-left: 32px; font-size: 0.88em; }
+
+
+/* ===== Tags Redesign ===== */
+.blog-tags {
+  margin: 10px 0;
+}
+.blog-tags span {
+  font-weight: 600;
+  color: #555;
+  margin-right: 6px;
+}
+.blog-tags a {
+  display: inline-block;
+  padding: 3px 14px;
+  margin: 2px 3px;
+  font-size: 0.82em;
+  font-weight: 500;
+  color: #0369a1;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.blog-tags a:hover {
+  color: #fff;
+  background: #0369a1;
+  border-color: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(3,105,161,0.3);
+}
+
+.tag-btn {
+  display: inline-block;
+  padding: 5px 18px;
+  margin: 3px 4px;
+  font-size: 0.85em;
+  border-radius: 20px;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  background: #e0f2fe;
+  transition: all 0.2s ease;
+}
+.tag-btn:hover {
+  color: #fff;
+  background: #0369a1;
+  border-color: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(3,105,161,0.3);
+}
+
+/* ===== Reference & Citation Styles ===== */
+.ref-badge {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.75em;
+  font-weight: 600;
+  padding: 0 6px;
+  border-radius: 4px;
+  border: 1px solid #bae6fd;
+  vertical-align: super;
+  line-height: 1.4;
+}
+
+.src-cite {
+  font-size: 0.88em;
+  color: #888;
+  font-style: italic;
+}
+
+.src-cite strong {
+  color: #b45309;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.hl-orange {
+  background: rgba(240, 107, 5, 0.12);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
