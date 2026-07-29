@@ -312,6 +312,7 @@ h4 {
 a {
   text-decoration: none;
   display: inline-block;
+  transform-origin: left center;
   transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
 a:hover {
