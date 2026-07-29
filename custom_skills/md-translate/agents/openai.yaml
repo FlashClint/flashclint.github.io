@@ -1,0 +1,4 @@
+interface:
+  display_name: "MD Translate"
+  short_description: "Translate mixed-language markdown to academic English"
+  default_prompt: "Translate the specified markdown file from Chinese to English. Preserve formula and all emoji characters exactly as-is."
