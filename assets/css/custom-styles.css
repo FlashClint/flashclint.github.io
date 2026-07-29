@@ -299,8 +299,21 @@
   margin-top: 0.7rem;
   margin-bottom: 0.4em;
 }
+h4 {
+  font-size: 1.25rem;
+}
 .blog-post h4 {
   margin-top: 0.6rem;
   margin-bottom: 0.3em;
   font-size: 1.25rem;
+}
+
+/* ===== Link hover effect (scale + shadow) ===== */
+a {
+  transition: color 0.2s ease, text-shadow 0.2s ease, filter 0.2s ease;
+}
+a:hover {
+  color: #004d73;
+  filter: brightness(1.05);
+  text-shadow: 0 1px 4px rgba(0,120,186,0.2);
 }

@@ -112,15 +112,15 @@ navbar-var-length: true
 
 page-col: "#E2F5FD"
 text-col: "#000000"
-link-col: "#2C86D9"
-hover-col: "#2E5CD9"
+link-col: "#0078BA"
+hover-col: "#004d73"
 navbar-col: "#92D4FD"
 navbar-text-col: "#000000"
 navbar-border-col: "#2C86D9"
 footer-col: "#E2F5FD"
 footer-text-col: "#000000"
-footer-link-col: "#2C86D9"
-footer-hover-col: "#2E5CD9"
+footer-link-col: "#0078BA"
+footer-hover-col: "#004d73"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
@@ -278,6 +278,7 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+
 
 
 
