@@ -311,11 +311,12 @@ h4 {
 /* ===== Link hover effect ===== */
 a {
   text-decoration: none;
+  display: inline-block;
   transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
 a:hover {
   color: #004d73;
   text-decoration: none;
-  transform: translateY(-1px);
-  text-shadow: 0 3px 6px rgba(0,120,186,0.25);
+  transform: translateY(-1.5px) scale(1.02);
+  text-shadow: 0 4px 8px rgba(0,120,186,0.25);
 }
