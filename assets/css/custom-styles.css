@@ -308,12 +308,14 @@ h4 {
   font-size: 1.25rem;
 }
 
-/* ===== Link hover effect (scale + shadow) ===== */
+/* ===== Link hover effect ===== */
 a {
-  transition: color 0.2s ease, text-shadow 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
 a:hover {
   color: #004d73;
-  filter: brightness(1.05);
-  text-shadow: 0 1px 4px rgba(0,120,186,0.2);
+  text-decoration: none;
+  transform: translateY(-1px);
+  text-shadow: 0 3px 6px rgba(0,120,186,0.25);
 }
