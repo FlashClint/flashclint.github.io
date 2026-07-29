@@ -1,167 +1,191 @@
----
-layout: post
-title: "PeakForce Tapping AFM"
-date: 2026-07-28
-tags: [protocols, AFM]
-mathjax: true
-comments: true
----
+ ---
+ layout: post
+ title: "PeakForce Tapping AFM"
+ date: 2026-07-28
+ tags: [protocols, AFM]
+ mathjax: true
+ comments: true
+ ---
+ 
+ ## Tip Selection
+ 
+ - The spring constant \($k$\) should be close to or greater than the "stiffness" corresponding to the sample modulus, so that the tip can deform the sample surface.
+     - For biological samples, typically choose 0.01–0.5 N/m <sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>
+     - For biological samples with unknown modulus, start with ~0.1 N/m <sup class="ref-badge" title="Alice Pyne & Muller, Nat. Protoc (2014)">ref</sup>
+ - The resonance frequency in liquid \($f$\) (typically ~1/3 of that in air) must be significantly higher than the operating frequency of the PeakForce tapping (PFT) mode (1–2 kHz) <sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>, to avoid excitation of the cantilever near its resonance during operation, which would cause inertia effects and hydrodynamic drag that degrade imaging quality.
+     - Since $Q \sim f/\Delta f$, a low Q-factor means $\Delta f$ is large, so the cantilever can still be excited even at frequencies far from resonance.
+     - For high-speed imaging, cantilevers with $f$ > 100 kHz are required.
+ - Force sensitivity should be as high as possible, but there is a tradeoff: high force sensitivity typically corresponds to a high Q-factor, and a high Q-factor is unfavorable for fast imaging <sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>.
+ - Tips with a metal coating may exhibit larger drift, affecting the accuracy of force control.
+ - **Blunt tips typically do not become sharper, but sharp tips gradually become sharper** <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>.
+     - In any case, achieving high-resolution FD-based AFM topographs and images takes patience. The operator **needs to wait for the stylus to get sufficiently sharp** to contour structural details of the proteins. <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
+ - Tips from the same batch may share the same contamination profile. If one encounters a poor tip, try a different batch.
+ 
+ ## Tip Calibration
+ 
+ - Before and after scanning, or after changing the laser alignment, calibrate the deflection sensitivity using a hard substrate (e.g., mica, glass).
+ 
+ <div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+   <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 Measuring Sensitivity</p>
+   The so-called deflection sensitivity is also referred to as z scan sensitivity.
+ - For z scan sensitivity: use Ramp mode, set trigger mode to "relative" and trig threshold to &lt;0.5 V.
+ - For PeakForce QNM, also calibrate the Drive3 Amplitude Sensitivity (see Bruker AFM manual for the calibration procedure).
+ - If Drive3 is set correctly, the amplitude of the height sensor in high-speed capture should match the set PeakForce amplitude.
+ </div>
+ 
+ <div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Tip Deflection Sensitivity Changes During Scanning</p>
+   Possible causes:
+   - Thermal drift shifting the laser spot position.
+   - Changes in tip reflectivity caused by contamination or coating delamination.
+   **A 5–8% change in deflection sensitivity over several hours of scanning is acceptable.**
+   *Source: Muller, Nat. Protoc (2014)*
+ </div>
+ 
+ - To measure $k$, the tip must be retracted at least 100 μm from the substrate.
+     - Measured $k$ can differ substantially from the nominal value (potentially by a factor of 2).
+ 
+ ## Imaging Parameters
+ 
+ #### Engaging
+ 
+ - Start from a low engage setpoint and increase by ~10 pN increments until the minimum reliable engage setpoint is found.
+ - The gain during engagement should not be too high, otherwise the tip is easily damaged. Recommended value: 10 <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>.
+ - Increasing the engage setpoint or raising the gain can both speed up the engagement process.
+ - If ScanAsyst Auto Setpoint is not used, the system sets the engage setpoint as the peak force setpoint after engagement.
+ 
+ #### Sync Distance
+ 
+ - Set the sync distance <font color="#ff0000">immediately</font> after engagement; otherwise, the tip is easily damaged.
+     - Autoconfig can be used to set this value, but when using a small peak force (where the peak force is barely discernible above the noise), manual adjustment is required.
+ 
+ <div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Note</p>
+   - In the Bruker Multimode 8 Force Monitor, the blue trace is approach and the red trace is retract.
+ - Another use of autoconfig: to analyze and eliminate parasitic deflection (i.e., ringing at the pull-off point, typically including free oscillation of the tip after detachment from the surface, piezo cycle-induced tip deformation, and viscoelastic effects).
+ </div>
+ 
+ <div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+   <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 Auto Config for Small Peak Force Setpoint (&lt; ~20 mV)</p>
+   Using autoconfig at a very small setpoint may cause the tip to completely lose contact with the surface. Therefore, first set a larger setpoint, run autoconfig, and then reduce the setpoint back down.
+ </div>
+ 
+ - Sync Distance QNM is obtained by calibrating on a hard sample (and should not be modified since calibration), whereas Sync Distance New is used for feedback and needs to be tuned during scanning.
+ - Alice Pyne's approach <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>: First optimize Sync Distance New so that the small circle lies at the peak force on the Force–Time curve; then set Sync Distance QNM to the same value as Sync Distance New, and check whether the Force–Z curve is symmetric about the small circle. <font color="#548dd4">(This can also serve as a check for correct Sync Distance New tuning: if setting Sync Distance QNM equal to Sync Distance New makes the Force–Z curve symmetric about the small circle, then the setting is correct.)</font>
+ - When the PeakForce frequency changes, the Sync Distance must be adjusted accordingly. Generally, when the frequency doubles, the Sync Distance should be reduced to 1/3 <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>.
+     - <u>Personal note: This recommendation may apply to Sync Distance in units of μs rather than the percentage-based Sync Distance used on the MM8.</u>
+ 
+ #### Amplitude
+ 
+ **Small amplitudes keep the tip in the short-range force regime, achieving high topographic contrast while also reducing fluid drag. However, the amplitude must not be too small to avoid sample damage.**
+ 
+ - Large oscillation amplitudes (<font color="#ff0000">~10–100 nm</font>) are desirable for measuring long-range interactions (e.g., **electrostatic and hydrophobic**), whereas small oscillation amplitudes (<font color="#ff0000">3 nm</font>) are suitable for sensing short-range interactions (e.g., **Pauli repulsion and van der Waals**) <sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>.
+ - The amplitude can be adjusted to roughly the height of the protein protrusions (for membrane proteins: 4–15 nm) <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>, or 1–2 times the protrusion height <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>.
+ - At too-high amplitudes, the force feedback may be impaired and the biological sample may be damaged <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>.
+ 
+ #### Lift Height
+ 
+ - Defined as the height at which the tip no longer interacts with the sample, corresponding to the point on the force curve where the signal flattens. This is the lift height used during autoconfig.
+ - Lift height is coupled with autoconfig: clicking the autoconfig button automatically calculates the lift height and performs autoconfig at that height; manually changing the lift height triggers autoconfig at the specified height.
+ - If set manually, observe the force curve and set the lift height at the point where the force curve begins to flatten (should be higher than the protrusion height of the molecules of interest).
+ - Even at small amplitudes and small forces, adjusting the lift height can help flatten the baseline <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>.
+ 
+ #### Setpoint
+ 
+ - A very small force may result in a noisy force curve. In this case, increasing the force can improve the signal-to-noise ratio.
+ - **After starting the scan, the approach setpoint must be adjusted to be less than the imaging setpoint**, because changes to the peak force amplitude, lift height, sync distance, or running autoconfig will all trigger re-engagement.
+ 
+ #### Gain
+ 
+ **Goal: to find the optimal ratio between I gain and P gain for the system.**
+ 
+ - Gain tuning procedure <sup class="ref-badge" title="Atomic Force Microscopy for Life Sciences by Bruker">ref</sup>:
+     1. Increase I gain until the signal begins to oscillate, then reduce slightly.
+     2. Increase P gain until the signal begins to oscillate, then reduce slightly.
+     3. Repeat steps 1 and 2 until no oscillation occurs after a slight increase in gain.
+ - Generally, first minimize the force, then optimize the feedback gain and scan rate.
+ - Optimal gain: the gain value just before the signal starts oscillating or just before noise noticeably increases in the topography image.
+ 
+ #### Lowpass Filter
+ (This parameter appears distinct from the parameter controlled by "LP Deflection BW" ?)
+  <div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 "LP Deflection BW"</p>
+   This parameter invokes a user-programmable low-pass filter to remove high-frequency noise from the real-time data. The filter operates on the collected data regardless of scan direction. The cutoff frequency can be set from 1–65 kHz.
+   In contrast, the lowpass deflection bandwidth parameter in PeakForce (not available on the MM8) can only be set from 0–65.56 kHz.
+ </div>
 
-## 探针选择
-- k 要接近或者大于样品模量对应的“劲度系数”，使得探针能够在样品表面产生形变
-	- 对于生物样品，一般选择 0.01~0.5 N/m <sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>
-	- 对于生物样品，在不知道样品模量时，可先尝试0.1N/m <sup class="ref-badge" title="Alice Pyne & Muller, Nat. Protoc (2014)">ref</sup>
-- 液相f (一般为气相的1/3)要显著大于PFT的工作频率(1~2kHz)<sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>，防止工作时因为接近探针共振频率、探针被激励，产生inertia effect &  hydrodynamic drgging，对成像产生影响
-	- 因为$Q \sim f/\Delta f$，low Q 意味着，$\Delta f$较大，悬臂梁在远离共振频率较远时也能被激励
-	- 对于快速成像，需要用$f>100~kHz$的悬臂梁
-- force sensitivity尽量高，但存在tradeoff，即 high force sensitivity 往往对应 high Q-factor，而high Q-factor对快速成像不利<sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>
-- 有金属镀层的探针可能会有较大的drift，影响力控制的精度
-- **钝针通常不会变尖，但尖针会逐渐变尖** <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
-	- In any case, achieving high-resolution FD-based AFM topographs and images takes patience. The operator **needs to wait for the stylus to get sufficiently sharp** to contour structural details of the proteins. <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
-- 同一批次的探针可能会有相同的污染情况，如果遇到状态不好的针可以换一批探针
+ **Purpose: To reduce baseline ringing occurring at the pull-off point.**
+ 
+ - Typically set to ~20 times the peak force frequency (&lt;65 kHz) <sup class="ref-badge" title="Alice Pyne's doctoral thesis (2015)">ref</sup>.
+ - However, if set too low, it will distort the force curve and introduce errors when analyzing mechanical properties.
+ 
 
-## 探针校准
-- 在扫描前&扫描后、或者 改变激光照射位置后，都用一些硬基底(如：mica、glass等)来校针的deflection sensitivity
-<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 测量sensitivity的方法</p>
-  一般说的deflection sensitivity又被称为 z scan sensitivity
-- 对于z scan sensitivity，用ramp，设置：trigger mode: relative; trig threshold: <0.5V
-- 对于PeakForce QNM，还需校准 Drive3 Amplitude Sensitivity (校准流程参见b站BrukerAFM课)
-- 若Drive3设置正确，则high-speed capture里height sensor的振幅与设置的peakforce amplitude应该会相同
-</div>
-
-<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 探针的deflection sensitivity 在扫描过程中可能会发生变化，其可能原因为：</p>
-  - 温度变化导致的激光位置偏移
-- 探针表面反光度 因为沾染东西 或 涂层脱落等原因 发生变化
-**在几个小时的扫描后，探针deflection sensitivity变化5~8%是可接受的**
-*from:  Muller, Nat. Protoc (2014)*
-</div>
-
-- 测 k 需要让探针远离基底至少100μm
-	- 测得的 k 通常可能会与 nominal k 相差较大（可能会相差到3倍）
-
-
-## 成像参数
-#### 进针
-- 按照每次增加~10 pN的方法从小engage setpoint开始进针，直到找到最小的进针engage setpoint
-- 进针时的gain值不能太大，否则容易伤针，推荐值：10 (<sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>
-- 增大engage setpoint 或 增大gain值都可以提高进针的速率
-- 如果不使用ScanAsyst Auto Setpoint，进针后系统会把setpoint设置成peak force setpoint
-
-#### Sync Distance
-- 进针后要<font color="#ff0000">立即</font>设定 sync distance， 否则容易伤针
-	- 可以用 autoconfig 来设置该值，但对于小力情况(the peak force will be barely discernible above the noise)，则需要手动调
-<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Note</p>
-  - Bruker Multimode 8的Force Monitor里，蓝线为approach，红线为retract
-- autoconfig的另一用处：分析并消除parasitic deflection (即ringing at the pulling-off point，一般包括：探针脱离表面的自由振荡、piezo周期变化带来的探针形变、粘滞力影响)
-</div>
-
-<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 Auto Config for small peak force setpoint (< ~20mV)</p>
-  小setpoint情况下用auto config可能会导致探针直接脱离表面，因此需要先设置一个较大的setpoint，然后用auto config，之后再调回小的setpoint
-</div>
-
-- Sync Distance QNM是通过硬样品校准后得到的（之后不需要修改），而Sync Distance New则是用于feedback，需要在扫描时调节
-- Alice Pyne的观点<sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>：先优化Sync Distance New，使小圆点在Force-Time曲线的peak force处，再把Sync Distance QNM设置成与Sync Distance New相同的值，并检查Force-Z曲线是否关于小圆点”对称“ <font color="#548dd4">(这也可以作为一种检查Sync Distance New是否被调得正确的方法，即：如果将Sync Distance QNM设得和Sync Distance New一致后Force-Z曲线关于小圆点对称，则设置正确)</font>
-- 当PeakForce Frequency改变时，Sync Distance也要相应地变化，一般frequency double时sync distance要减小为1/3<sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>
-	- <u>个人认为，这个建议可能是针对以μs为单位的sync distance，而不是MM8上以%为单位的sync distance</u>
-
-#### Amplitude
-**小振幅是为了让针尖处于短程力区、实现高衬度(high contrast)，同时也能减少流体力的扰动，但振幅不能过小，防止样品损伤**
-- large oscillation amplitudes <font color="#ff0000">(~10–100 nm)</font> are desirable for measuring long-range interactions (e.g., **electrostatic and hydrophobic**), whereas small oscillation amplitudes (<font color="#ff0000">3 nm</font>) are suitable for sensing short-range interactions (e.g., **Pauli repulsion and van der Waals**) <sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>
-- amplitude可以调整到与蛋白突起高度差不多 (对于膜蛋白：4~15 nm) <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>，或 突起高度的~2倍<sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>
-- at too-high amplitudes the force feedback may be impaired and the biological sample may be damaged <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
-
-#### Lift height
-- 定义为：针尖与样品不再发生作用的抬针高度，对应力曲线上开始变平缓的点，是做auto config时的抬针高度
-- lift height 是与 auto config捆绑的：点击<u>auto config按钮</u>时会自动计算lift height，然后在该lift height上做auto config操作；手动改变lift height后会触发auto config在所指定的lift height上做
-- 如果手动设置，可以观察力曲线，将其设置为力曲线开始变平缓的点（lift height应该要比 感兴趣的分子的突起更高）
-- 即使是在小振幅、小力下，通过调整lift height可以使基线变得平整<sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>
-
-#### Setpoint
-- 小力可能会导致力曲线噪声较大，此时可以提高力来提高信噪比
-- **开始扫描后一定要修改 approach setpoint，使其$\le$ imaging setpoint**，因为当改变peak force amplitude, lift height, sync distance或者用autoconfig时，都会触发tip engage
-
-#### Gain
-**目标：找到系统的那个最优ratio between I gain and P gain**
-- 调gain流程<sup class="ref-badge" title="Atomic Force Microscopy for Life Sciences by Bruker">ref</sup>：
-	1. 增大I gain直到信号开始振荡后 适当减小
-	2. 增大P gain直到信号开始出现振荡后 适当减小
-	3. 重复1, 2直到稍微增大gain后不出现振荡
-- 一般需要先把力调到最小，再优化feedback gain和scan rate
-- 最佳的gain：刚好在信号出现振荡 或者说 形貌图上噪声明显增加 之前的gain
-
-#### Lowpass filter (似乎与”LP Deflection BW“所控制的东西不同？)
-目的：用于减少baseline中在pull off时发生的ringing现象
-- 通常设置为peak force frequency的~20倍  (<65 kHz) <sup class="ref-badge" title="Alice Pyne's doctoral thesis (2015)">ref</sup>
-- 但如果设置的值过低，会 distort force curve、再分析力学性质时引入误差
-<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 "LP Deflection BW"</p>
-  This parameter invokes user-programmable low pass filter to remove high frequency noise from the real-time data. The filter operates on the collected data regardless of scan direction. The cutoff frequency can be set from 1~65 kHz
-相比之下，Peakforce里的lowpass deflection bandwidth (MM8里没有这个参数)只能设置为10~65.56 kHz
-</div>
-
-#### 扫描策略
-- 进针后顺序 <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>
-	1. setpoint (使其稍微超过力噪声，~70 pN)
-	2. Sync Distance New & QNM
-	3. Lift Height (下策：Auto Config)
-	4. 大范围扫描+调gain+可能需要增加setpoint(+ 调gain)
-	5. zoom in 到小范围，增加pixel数，使得resolution $\le$ ~0.5 nm
-	6. 减小setpoint (+ 调gain)
-- 从大范围到小范围：
-	- 大范围：scan rate: 1~2 Hz, Peakforce amplitude: 40~60 nm <font color="#245bdb">(compensate for large obstacles and the tilt of the support)</font>
-		- 可通过调节scan angle来compensate for the tilt of the support
-	- 小范围：从大范围zoom in，调节amplitude使得topographic contrast达到最佳，Peakforce amplitude: membrane proteins, 4~15 nm; protein fibrils, 10~25 nm <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
-		- 转到小范围扫描，可能需要适当减小setpoint
-		- 扫描速度要适当增大，防止一个像素点采很多条力曲线导致样品被破坏
-		- 如果在小范围观察到样品”拉伸“”creep“，则需要采用更快的扫描速度、或者让仪器更稳定一些
-
-
-## 其他方面
-#### 仪器的稳定与平衡
-**标准：使探针在施加力的精度在a few pN**
-- 使用mechanical vibration analyzer检测仪器的机械振动情况，电磁噪声则可以分析AFM的input和output信号。更可行的方法是，通过监测探针在远离基底 和 靠近基底时的振动情况，判断仪器稳定性
-- 在制作基底时避免引入气泡
-- 避免仪器的各种电线受机械或噪声影响
-- 仪器及相关仪器最好在扫描前几个小时就打开，来尽量避免drift；上样后系统达到完全平衡，可能需要1h，可以通过监测deflection通道 或者 看diode信号("VERT", "HORI")来判断
-- 对于k较小的探针，热噪声通常是最大的噪声来源
-- cantilever drift对应的一般是，探针会呈现出一定程度的持续弯曲
-<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 如果仪器实在无法稳定，则依次判断：</p>
-  - 如果仪器在液相和气相都不稳定，则有可能是周围热源影响 或者 仪器本身出问题
-- 如果仪器只在液相不稳定，则比较可能是探针的问题
-*(from:  Muller, Nat. Protoc (2014))*
-</div>
-
-<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Possible causes of a large hysteresis between trace and retrace:</p>
-  - 探针没夹紧
-- 基底不稳定（有气泡、胶没粘牢、撕mica时带起了一部分mica但未完全解离后又回落至基底）
-- feedback gain 太低
-*(from:  Muller, Nat. Protoc (2014))*
-</div>
-
-#### 样品的洁净度
-**标准：对空mica进行扫描，没有发现杂质**
-- 使用nanopure, double-distilled or ultrapure water，而不是deionized water来避免水中的残留离子或有机物
-- 用dishwashing detergent和filtered nanopure water依次清洗基底 或者 液池
-- 用装有滤网的N<sub>2</sub>枪吹，而不是压缩空气
-- buffer一周内用完
-- 装样品或buffer的容器需要用nanopure water先清洗一遍
-
-#### 其他
-- 基底构造：
-	- 直径0.5~1 cm mica放在直径1.5~2 cm Teflon foil上，再固定到铁片上<sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
-- **防止粘针的小妙招**：在buffer里加glycerol (< 30% (v/v))
-- 时间管理小妙招：
-	- 在制样时，用干净buffer弄个干净mica代替样品，之后放上探针打开激光，让整个系统平衡稳定
-- 关于高分辨的一些观点：
-	- “Proteins and fibrils that protrude by more than 3 nm from the mica surface may be imaged at a resolution **approaching 2 nm**, because such ‘large’ protrusions are likely to be structurally flexible and their protruding height prevents the proper contouring of the sample surface by the AFM stylus.” <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
-	- “There are a number of complications that currently prevent AFM from achieving atomic resolutions on biomolecules. These include: The binding of the biomolecule to an appropriate substrate, mobility of the molecule, the presence of contamination, the effect of forces exerted by the tip on the sample, and the difficulties in following the contours of a more complex and highly corrugated molecule using a feedback system, whilst accurately controlling the tip sample interaction and therefore the imaging force.” <sup class="ref-badge" title="Alice Pyne's doctoral thesis (2015)">ref</sup>
-- 参数参考<sup class="ref-badge" title="Alice Pyne's doctoral thesis (2015) & Alice Pyne, Chromosome Architecture (2022)">ref</sup>：
-	- ![AlicePyne_doctoral_thesis_Table3.1.png](/assets/img/protocols/peakforce-tapping/AlicePyne_doctoral_thesis_Table3.1.png)
-
-	- ![AlicePyne_Chromosome_Architecture(2022).png](/assets/img/protocols/peakforce-tapping/AlicePyne_Chromosome_Architecture(2022).png)
+ 
+ #### Scanning Strategy
+ 
+ - Recommended operations after engagement <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>:
+     1. Set the force setpoint slightly above the noise floor (~70 pN).
+     2. Adjust Sync Distance New and QNM.
+     3. Set Lift Height (a worse approach: Auto Config).
+     4. Scan at a large scale; tune gain (and possibly increase setpoint + re-tune gain).
+     5. Zoom in to a small area, increase pixel count to achieve a resolution of $\le$ ~0.5 nm.
+     6. Reduce the setpoint (and re-tune gain).
+ - From large to small scan ranges:
+     - Large range: scan rate 1–2 Hz, PeakForce amplitude 40–60 nm <font color="#245bdb">(to compensate for large obstacles and the tilt of the support)</font>.
+         - The scan angle can also be adjusted to compensate for the tilt of the support.
+     - Small range: zoom in from the large range, adjust the amplitude for optimal topographic contrast. PeakForce amplitude: membrane proteins 4–15 nm; protein fibrils 10–25 nm <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>.
+         - When switching to a small scan range, it may be necessary to reduce the setpoint accordingly.
+         - The scan rate should be increased appropriately to prevent sample damage from acquiring too many force curves per pixel.
+         - If "smearing" or "creep" is observed at the small range, a faster scan rate or a more stable instrument setup is needed.
+ 
+ ## Other Aspects
+ 
+ #### Instrument Stability and Equilibration
+ 
+ **Standard: the tip should exert force with an accuracy of a few pN.**
+ 
+ - Use a mechanical vibration analyzer to assess the instrument's mechanical vibrations; electromagnetic noise can be analyzed via the AFM's input and output signals. A more practical approach is to monitor the tip oscillation far from and close to the substrate to judge instrument stability.
+ - Avoid introducing air bubbles when preparing the substrate.
+ - Prevent cables from picking up mechanical or acoustic noise.
+ - Turn on the instrument and related equipment several hours before scanning to minimize drift. After sample loading, reaching full equilibration may take ~2 h, which can be judged by monitoring the deflection channel or the diode signals ("VERT", "HORI").
+ - For tips with a low spring constant, thermal noise is usually the dominant noise source.
+ - Cantilever drift typically manifests as a slow, continuous bending of the cantilever.
+ 
+ <div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+   <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 If the Instrument Cannot Be Stabilized, Diagnose as Follows:</p>
+   - If unstable in both liquid and air, the issue is likely ambient thermal effects or a problem with the instrument itself.
+ - If unstable only in liquid, the problem is more likely with the probe.
+ *(Source: Muller, Nat. Protoc (2014))*
+ </div>
+ 
+ <div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+   <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Possible Causes of a Large Hysteresis Between Trace and Retrace:</p>
+   - The tip is not properly clamped.
+   - The substrate is unstable (air bubbles, unadhered glue, or partially cleaved mica that did not fully detach and fell back onto the substrate).
+   - Feedback gain is too low.
+ *(Source: Muller, Nat. Protoc (2014))*
+ </div>
+ 
+ #### Sample Cleanliness
+ 
+ **Standard: scan bare mica and observe no contamination.**
+ 
+ - Use nanopure, double-distilled, or ultrapure water instead of deionized water to avoid residual ions or organic matter in the water.
+ - Clean the substrate or fluid cell sequentially with dishwashing detergent and filtered nanopure water.
+ - Dry with a N<sub>2</sub> gun fitted with a filter, not with compressed air.
+ - Use buffer within one week.
+ - Rinse containers for samples or buffer with nanopure water before use.
+ 
+ #### Miscellaneous
+ 
+ - Substrate assembly:
+     - Place a 0.5–1 cm diameter mica disc on a 1.5–2 cm diameter Teflon foil, then fix onto a metal disc <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>.
+ - **A trick to prevent tip sticking**: add glycerol to the buffer (&lt; 30% (v/v)).
+ - Time management tip:
+     - While preparing the sample, prepare a clean mica substrate with clean buffer as a dummy sample, mount the probe, turn on the laser, and let the entire system equilibrate and stabilize.
+ - Some opinions on high-resolution imaging:
+     - "Proteins and fibrils that protrude by more than 3 nm from the mica surface may be imaged at a resolution **approaching 2 nm**, because such 'large' protrusions are likely to be structurally flexible and their protruding height prevents the proper contouring of the sample surface by the AFM stylus." <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
+     - "There are a number of complications that currently prevent AFM from achieving atomic resolutions on biomolecules. These include: The binding of the biomolecule to an appropriate substrate, mobility of the molecule, the presence of contamination, the effect of forces exerted by the tip on the sample, and the difficulties in following the contours of a more complex and highly corrugated molecule using a feedback system, whilst accurately controlling the tip sample interaction and therefore the imaging force." <sup class="ref-badge" title="Alice Pyne's doctoral thesis (2015)">ref</sup>
+ - Reference parameters <sup class="ref-badge" title="Alice Pyne's doctoral thesis (2015) & Alice Pyne, Chromosome Architecture (2022)">ref</sup>:
+     - ![AlicePyne_doctoral_thesis_Table3.1.png](/assets/img/protocols/peakforce-tapping/AlicePyne_doctoral_thesis_Table3.1.png)
+     - ![AlicePyne_Chromosome_Architecture(2022).png](/assets/img/protocols/peakforce-tapping/AlicePyne_Chromosome_Architecture(2022).png)
