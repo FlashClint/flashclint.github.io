@@ -272,7 +272,7 @@
 }
 
 .blog-post p {
-  margin-bottom: 0.3em;
+  margin: 0.3em 0;
 }
 
 .blog-post li {
