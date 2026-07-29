@@ -289,3 +289,18 @@
   font-size: 0.72em;
   font-weight: 600;
 }
+
+/* ===== Heading adjustments ===== */
+.blog-post h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+.blog-post h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.blog-post h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.25rem;
+}
