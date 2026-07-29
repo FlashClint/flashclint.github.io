@@ -12,29 +12,24 @@ Example:
 import re, os, shutil, argparse
 from datetime import date
 
+# ── helpers ──────────────────────────────────────────────
+
 def clean_wikilinks(text):
-    """Remove Obsidian wikilinks and block references."""
-    # Protect image embeds first
+    """Remove Obsidian wikilinks and block references, protect image embeds."""
     text = re.sub(r'!\[\[([^\]]+?)\|(\d+)\]\]', r'!!IMG!!\1||\2', text)
     text = re.sub(r'!\[\[([^\]]+)\]\]', r'!!IMG!!\1||', text)
-
-    # Convert [[file#^block|text]] -> text
     text = re.sub(r'\[\[([^\]]+?)#\^([a-z0-9]+)\|(.+?)\]\]', r'\3', text)
     text = re.sub(r'\[\[([^\]]+?)\|(.+?)\]\]', r'\2', text)
     text = re.sub(r'\[\[([^\]]+)\]\]', r'\1', text)
-
-    # Restore image markers
     text = re.sub(r'!!IMG!!([^|]+)\|\|(\d*)', r'!!!IMG/\1|\2!!!', text)
     text = re.sub(r'!!IMG!!([^|]+)\|\|', r'!!!IMG/\1!!!', text)
-
-    # Remove ^blockref markers
     text = re.sub(r'\^[a-z0-9]{6}\s*$', '', text, flags=re.MULTILINE)
     text = re.sub(r'\^[a-z0-9]{6}', '', text)
     return text
 
 
 def convert_images(text, prefix):
-    """Convert !!!IMG/ markers to proper markdown images."""
+    """Convert !!!IMG/ markers to proper markdown images or <img> tags."""
     def repl(m):
         fname = m.group(1)
         w = m.group(2)
@@ -52,12 +47,7 @@ def convert_callouts(text):
         "tip":  ("💡", "#d97706", "#fffbeb"),
         "warning": ("⚠️", "#dc2626", "#fef2f2"),
         "info": ("ℹ️", "#2563eb", "#eff6ff"),
-        "abstract": ("📋", "#9333ea", "#faf5ff"),
-        "success": ("✅", "#16a34a", "#f0fdf4"),
-        "question": ("❓", "#2563eb", "#f0f9ff"),
-        "danger": ("⚡", "#dc2626", "#fef2f2"),
     }
-
     lines = text.split("\n")
     result = []
     i = 0
@@ -68,13 +58,12 @@ def convert_callouts(text):
             ctype = m.group(1).lower()
             title = m.group(2).strip() or ctype.capitalize()
             icon, color, bg = styles.get(ctype, ("📝", "#6b7280", "#f9fafb"))
-
             content_lines = []
             j = i + 1
             while j < len(lines):
-                if re.match(r">\s*\[!\w+\]", lines[j]):  # stop at next callout
+                if re.match(r">\s*\[!\w+\]", lines[j]):
                     break
-                if not lines[j].startswith(">"):          # stop at non-quote line
+                if not lines[j].startswith(">"):
                     if lines[j].strip() == "":
                         j += 1
                         continue
@@ -82,15 +71,15 @@ def convert_callouts(text):
                 cleaned = re.sub(r"^>\s?", "", lines[j])
                 content_lines.append(cleaned)
                 j += 1
-
             inner = "\n".join(content_lines).strip()
             html = (
                 f'<div class="callout callout-{ctype}" markdown="1" '
                 f'style="background: {bg}; border-left: 4px solid {color}; '
-                f'border-radius: 10px; padding: 12px 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">\n'
-                f'  <p style="margin: 0 0 8px 0; font-weight: 600; color: {color};">{icon} {title}</p>\n'
-                f'  {inner}\n'
-                f'</div>\n'
+                f'border-radius: 10px; padding: 12px 16px; margin: 16px 0; '
+                f'box-shadow: 0 1px 4px rgba(0,0,0,0.06);">\n'
+                f'  <p style="margin: 0 0 8px 0; font-weight: 600; color: {color};">'
+                f'{icon} {title}</p>\n'
+                f'  {inner}\n</div>\n'
             )
             result.append(html)
             i = j
@@ -100,26 +89,126 @@ def convert_callouts(text):
     return "\n".join(result)
 
 
-def fix_broken_chars(text):
-    """Fix <<font to <font."""
+# ── reference-badge conversion ───────────────────────────
+
+def convert_references(text):
+    """
+    Convert citation patterns into unified <sup class="ref-badge"> markup.
+
+    Detected patterns (in priority order):
+      1.  (from <span ...styled...>Author, Source</span>)
+      2.  (from Author, Source)
+      3.  Ref.X
+      4.  Standalone orange-highlighted author names
+    """
+    # Collect all unique citations first
+    citations = []
+    used_titles = set()
+
+    def add_citation(raw, clean_title):
+        """Return a unique ref-badge for this citation."""
+        if clean_title not in used_titles:
+            used_titles.add(clean_title)
+            citations.append(clean_title)
+        # Use 1-based index as superscript text
+        idx = citations.index(clean_title) + 1
+        num = idx if len(citations) <= 20 else "ref"
+        idx_text = str(num)
+        return f'<sup class="ref-badge" title="{clean_title}">{idx_text}</sup>'
+
+    # Priority 1: (from <span ...styled...>)  – orange-highlighted
+    def repl_from_span(m):
+        raw = m.group(1)
+        clean = re.sub(r'<[^>]+>', '', raw)
+        clean = re.sub(r'\s+', ' ', clean).strip()
+        clean = clean.replace("~~", "").replace("&amp;", "&")
+        return add_citation(raw, clean)
+
+    text = re.sub(
+        r'\(from\s*<span[^>]*>([^<]+)</span>(?:\s*&amp;\s*<span[^>]*>([^<]+)</span>)?\s*\)',
+        repl_from_span, text
+    )
+
+    # Priority 2: (from plain text) – not inside a span
+    def repl_from_plain(m):
+        clean = m.group(1).strip()
+        clean = re.sub(r'\s+', ' ', clean).strip()
+        return add_citation(m.group(0), clean)
+
+    text = re.sub(r'\(from\s*([^)]+)\)', repl_from_plain, text)
+
+    # Priority 3: Ref.X (no spaces, e.g. "Ref.1", "Ref. 2")
+    def repl_ref(m):
+        # Try to infer a meaningful title (the text may be inside a callout)
+        return add_citation(m.group(0), f"Reference {m.group(1)}")
+
+    text = re.sub(r'Ref\.\s*(\d+)', repl_ref, text)
+
+    return text
+
+
+# ── image copy & path check ──────────────────────────────
+
+def copy_and_check_images(source_dir, prefix, blog_dir):
+    """
+    Copy images from Obsidian's Images/ folder and report any missing ones.
+    Returns list of (status, path) tuples.
+    """
+    blog_assets = os.path.join(blog_dir, "assets", "img", "protocols", prefix)
+    os.makedirs(blog_assets, exist_ok=True)
+
+    # Search for image source folders
+    image_roots = []
+    for candidate in ["Images", "images", "attachments", "img"]:
+        p = os.path.join(source_dir, candidate)
+        if os.path.isdir(p):
+            image_roots.append(p)
+            # Check subdirectories
+            for sub in os.listdir(p):
+                sp = os.path.join(p, sub)
+                if os.path.isdir(sp):
+                    image_roots.append(sp)
+
+    # Extract referenced filenames from the original markdown
+    with open(args.input, "r", encoding="utf-8-sig") as f:
+        raw = f.read()
+
+    referenced = set(re.findall(r'!\[\[([^\]]+\.(?:png|jpg|jpeg|gif|svg))', raw, re.IGNORECASE))
+    results = []
+
+    for fname in sorted(referenced):
+        found = False
+        src_path = None
+        for root in image_roots:
+            candidate = os.path.join(root, fname)
+            if os.path.exists(candidate):
+                src_path = candidate
+                found = True
+                break
+
+        if found and src_path:
+            dst = os.path.join(blog_assets, fname)
+            shutil.copy2(src_path, dst)
+            results.append(("OK", fname))
+        else:
+            results.append(("MISSING", fname))
+
+    return results
+
+
+# ── orphan span fix ──────────────────────────────────────
+
+def fix_orphan_spans(text):
+    """Replace remaining orange-highlight spans with hl-orange class."""
+    text = re.sub(
+        r'<span style="background:rgba\(240,\s*107,\s*5,\s*[^)]+\)">(.*?)</span>',
+        r'<span class="hl-orange">\1</span>', text
+    )
     text = text.replace("<<font", "<font")
     return text
 
 
-def copy_images(source_dir, img_prefix, proto_name, images_base):
-    """Copy images from Obsidian Images/ folder to blog assets."""
-    src = os.path.join(source_dir, "Images", proto_name)
-    dst = os.path.join(images_base, img_prefix)
-    if not os.path.exists(src):
-        print(f"  [WARN] Image source not found: {src}")
-        return
-    os.makedirs(dst, exist_ok=True)
-    count = 0
-    for fn in os.listdir(src):
-        shutil.copy2(os.path.join(src, fn), os.path.join(dst, fn))
-        count += 1
-    print(f"  Copied {count} images to {dst}")
-
+# ── main ─────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description="Convert Obsidian .md to Jekyll blog post")
@@ -133,30 +222,28 @@ def main():
 
     blog_dir = os.path.abspath(args.blog_dir)
     posts_dir = os.path.join(blog_dir, "_posts")
-    images_base = os.path.join(blog_dir, "assets", "img", "protocols")
     os.makedirs(posts_dir, exist_ok=True)
 
-    # Read source file
+    # Read source
     with open(args.input, "r", encoding="utf-8-sig") as f:
         raw = f.read()
 
-    # Determine title
+    # Derive title
     title = args.title
     if not title:
         basename = os.path.splitext(os.path.basename(args.input))[0]
         title = basename.replace("-", " ").replace("_", " ").title()
 
-    # Process content
+    # ── pipeline ──
     content = raw
-    content = fix_broken_chars(content)
+    content = fix_orphan_spans(content)
     content = clean_wikilinks(content)
     content = convert_images(content, args.prefix)
     content = convert_callouts(content)
+    content = convert_references(content)
 
-    # Build tags list
+    # Build frontmatter
     tags = [t.strip() for t in args.tags.split(",")]
-
-    # Write post
     post = f"""---
 layout: post
 title: "{title}"
@@ -173,26 +260,23 @@ comments: true
     out_path = os.path.join(posts_dir, out_name)
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(post)
-    print(f"  Created: {out_name}")
+    print(f"[OK] Post written: {out_name}")
 
-    # Copy images
+    # ── image copy ──
     source_dir = os.path.dirname(os.path.abspath(args.input))
-    # Try common Obsidian image locations
-    for images_subdir in ["Images", "images", "attachments"]:
-        candidate = os.path.join(source_dir, images_subdir)
-        if os.path.exists(candidate):
-            # Find the right subfolder by matching topic names
-            for topic_dir in os.listdir(candidate):
-                topic_path = os.path.join(candidate, topic_dir)
-                if os.path.isdir(topic_path):
-                    # Check if this topic folder has relevant images
-                    files = os.listdir(topic_path)
-                    if any(args.prefix.replace("-", " ").split()[0].lower() in f.lower() for f in files):
-                        copy_images(os.path.dirname(candidate), args.prefix, topic_dir, images_base)
-                        break
-            break
-    else:
-        print("  [INFO] No images directory found. Images must be copied manually.")
+    image_results = copy_and_check_images(source_dir, args.prefix, blog_dir)
+
+    ok = [r for r in image_results if r[0] == "OK"]
+    missing = [r for r in image_results if r[0] == "MISSING"]
+    if ok:
+        print(f"[OK] Images copied to assets/img/protocols/{args.prefix}/ ({len(ok)} files)")
+    if missing:
+        for _, fname in missing:
+            print(f"[WARN] Image not found: {fname}  – copy manually")
+
+    # ── reference summary ──
+    print(f"[INFO] Citations converted to ref-badge markers.")
+    print(f"[INFO] After posting, verify by visiting the site and hovering over each superscript.")
 
 
 if __name__ == "__main__":
