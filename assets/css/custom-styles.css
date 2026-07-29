@@ -271,7 +271,7 @@
   line-height: 1.75;
 }
 
-.blog-post p {
+.page-content p {
   margin: 0.3em 0;
 }
 
@@ -293,14 +293,14 @@
 /* ===== Heading adjustments ===== */
 .blog-post h2 {
   margin-top: 0.9rem;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.5em;
 }
 .blog-post h3 {
   margin-top: 0.7rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4em;
 }
 .blog-post h4 {
   margin-top: 0.6rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3em;
   font-size: 1.25rem;
 }
