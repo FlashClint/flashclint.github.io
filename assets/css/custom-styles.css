@@ -309,13 +309,13 @@ h4 {
 }
 
 /* ===== Link hover effect ===== */
-a {
+.page-content a, .blog-post a {
   text-decoration: none;
   display: inline-block;
   transform-origin: left center;
   transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
-a:hover {
+.page-content a:hover, .blog-post a:hover {
   color: #004d73;
   text-decoration: none;
   transform: translateY(-1.5px) scale(1.02);
