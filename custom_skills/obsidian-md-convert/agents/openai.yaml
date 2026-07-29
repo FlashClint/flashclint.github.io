@@ -1,0 +1,3 @@
+﻿display_name: "Obsidian to Jekyll Converter"
+short_description: "Convert Obsidian markdown files to Jekyll blog posts for beautiful-jekyll sites"
+default_prompt: "Convert an Obsidian markdown file to a Jekyll-compatible blog post."
