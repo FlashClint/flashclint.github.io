@@ -11,7 +11,7 @@ subtitle: Single-Molecule Biophysics & Protein-Membrane Interactions
 
 #### Publications:
 **[Dynamic Dissection of NINJ1-Mediated Plasma Membrane Rupture Reveals a Multi-Stage Process](https://www.researchsquare.com/article/rs-5142979/v1)**  
-<font color="#787878">Zhaoyi Zhai, Xue Bai, Bo Yan, Zehao Zhou, Fang Chen, Xinrui Guo, Jie Chen, Chenguang Yang, James Farrell, <strong><u>Rongjing Chen</u></strong>, Yan Ma, Yang Cao, Zhen Zhou, Xin Liu, Qiaozhen Kang, Zhongbo Yu, Ying Lu, Ming Li, Lijiang Yang, Guanghou Shui, Xun Huang, Yi Qin Gao, Youwei Ai, Zhe Zhang and Fang Jiao.</font>  
+<font color="#404040">Zhaoyi Zhai, Xue Bai, Bo Yan, Zehao Zhou, Fang Chen, Xinrui Guo, Jie Chen, Chenguang Yang, James Farrell, <strong><u>Rongjing Chen</u></strong>, Yan Ma, Yang Cao, Zhen Zhou, Xin Liu, Qiaozhen Kang, Zhongbo Yu, Ying Lu, Ming Li, Lijiang Yang, Guanghou Shui, Xun Huang, Yi Qin Gao, Youwei Ai, Zhe Zhang and Fang Jiao.</font>  
 **Preprint** (2025)  
 <br>
 
@@ -21,12 +21,12 @@ subtitle: Single-Molecule Biophysics & Protein-Membrane Interactions
 
 #### Publications:
 **[Amyloid Fibrillation of a Ninjurin-1-Derived α-Helical Peptide: Structural Insights into Conformational Transition](https://pubs.acs.org/doi/10.1021/acsnano.5c14731)**  
-<font color="#787878">Meijiao Wang<sup>#</sup>, Wencheng Xia<sup>#</sup>, Dan Zhao, Zhaoyi Zhai, <strong><u>Rongjing Chen</u></strong>, Xue Bai, Zhe Zhang, Hao Fan, Jian-Ping Zhang<sup>*</sup>, Cong Liu<sup>*</sup>, and Fang Jiao<sup>*</sup>.</font>  
+<font color="#404040">Meijiao Wang<sup>#</sup>, Wencheng Xia<sup>#</sup>, Dan Zhao, Zhaoyi Zhai, <strong><u>Rongjing Chen</u></strong>, Xue Bai, Zhe Zhang, Hao Fan, Jian-Ping Zhang<sup>*</sup>, Cong Liu<sup>*</sup>, and Fang Jiao<sup>*</sup>.</font>  
 ***ACS Nano***, 19(40), 35977–35991 (2025).   
 <br>
 
 **[Supramolecular Hydrolase Mimics in Equilibrium and Kinetically Trapped States](https://onlinelibrary.wiley.com/doi/10.1002/anie.202317887)**  
-<font color="#787878">Jing Chen, Ke Shi, <strong><u>Rongjing Chen</u></strong>, Zhaoyi Zhai, Peiyong Song, Lesley W. Chow, Rona Chandrawati, E. Thomas Pashuck, Fang Jiao, and Yiyang Lin<sup>*</sup>.</font>  
+<font color="#404040">Jing Chen, Ke Shi, <strong><u>Rongjing Chen</u></strong>, Zhaoyi Zhai, Peiyong Song, Lesley W. Chow, Rona Chandrawati, E. Thomas Pashuck, Fang Jiao, and Yiyang Lin<sup>*</sup>.</font>  
 ***Angewandte Chemie International Edition***, 63(9), e202317887 (2024).  
 <br>
 
