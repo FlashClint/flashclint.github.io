@@ -50,8 +50,8 @@ Overview <sup class="ref-badge" title="Hausig-Punke, F. et al. Tracking the Endo
 1. Dry the desired lipid components into a film under vacuum.
 2. Add a solution containing ~70 mM calcein or 1 mM calcein + 1 mM Co<sup>2+</sup>, and vortex thoroughly until the lipid is fully dissolved.
 
-<div class="callout callout-tip" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Preparing Calcein Stock Solution</p>
+<div class="callout callout-tip" markdown="1" style="background: #f7fee7; border-left: 4px solid #84cc16; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #4d7c0f;">💡 Preparing Calcein Stock Solution</p>
   - Calcein is strongly acidic and has very low solubility under acidic conditions; therefore, NaOH is needed to adjust the pH and increase solubility. A pH meter should be used to continuously monitor the pH during adjustment.
 - <u>In the absence of a buffering system, diluting the calcein stock will cause a significant drop in pH.</u> If a stable pH is required, an excess of buffer species (e.g., HEPES, Tris) must be present.
 </div>

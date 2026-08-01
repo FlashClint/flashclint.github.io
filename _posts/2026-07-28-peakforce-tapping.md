@@ -25,8 +25,8 @@ comments: true
 
 - Before and after scanning, or after changing the laser alignment, calibrate the deflection sensitivity using a hard substrate (e.g., mica, glass).
 
-<div class="callout callout-tip" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Measuring Sensitivity</p>
+<div class="callout callout-tip" markdown="1" style="background: #f7fee7; border-left: 4px solid #84cc16; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #4d7c0f;">💡 Measuring Sensitivity</p>
 The so-called deflection sensitivity is also referred to as z scan sensitivity.
 - For z scan sensitivity: use Ramp mode, set trigger mode to "relative" and trig threshold to &lt;0.5 V.
 - For PeakForce QNM, also calibrate the Drive3 Amplitude Sensitivity (see Bruker AFM manual for the calibration procedure).
@@ -65,8 +65,8 @@ Possible causes:
 - Another use of autoconfig: to analyze and eliminate parasitic deflection (i.e., ringing at the pull-off point, typically including free oscillation of the tip after detachment from the surface, piezo cycle-induced tip deformation, and viscoelastic effects).
 </div>
 
-<div class="callout callout-tip" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Auto Config for Small Peak Force Setpoint (&lt; ~20 mV)</p>
+<div class="callout callout-tip" markdown="1" style="background: #f7fee7; border-left: 4px solid #84cc16; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #4d7c0f;">💡 Auto Config for Small Peak Force Setpoint (&lt; ~20 mV)</p>
 Using autoconfig at a very small setpoint may cause the tip to completely lose contact with the surface. Therefore, first set a larger setpoint, run autoconfig, and then reduce the setpoint back down.
 </div>
 
@@ -151,8 +151,8 @@ In contrast, the lowpass deflection bandwidth parameter in PeakForce (not availa
 - For tips with a low spring constant, thermal noise is usually the dominant noise source.
 - Cantilever drift typically manifests as a slow, continuous bending of the cantilever.
 
-<div class="callout callout-tip" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 If the Instrument Cannot Be Stabilized, Diagnose as Follows:</p>
+<div class="callout callout-tip" markdown="1" style="background: #f7fee7; border-left: 4px solid #84cc16; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #4d7c0f;">💡 If the Instrument Cannot Be Stabilized, Diagnose as Follows:</p>
 - If unstable in both liquid and air, the issue is likely ambient thermal effects or a problem with the instrument itself.
 - If unstable only in liquid, the problem is more likely with the probe.
 *(Source: Muller, Nat. Protoc (2014))*
