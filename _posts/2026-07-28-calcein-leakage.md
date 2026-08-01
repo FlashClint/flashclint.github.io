@@ -20,7 +20,7 @@ Several common [fluorescent combinations](https://www.thermofisher.cn/cn/zh/home
 ![calcein_synthesis.png](/assets/img/protocols/calcein-leakage/calcein_synthesis.png)
 - Its excitation and emission spectra are shown [below](https://assets.thermofisher.cn/TFS-Assets/LSG/manuals/MAN0019058_CalceinAM_UG.pdf): excitation at 495 nm, emission at 515 nm.
 ![calcein_spectrum.png](/assets/img/protocols/calcein-leakage/calcein_spectrum.png)
-- Calcein AM is a membrane-permeable variant that enters cells and is converted intracellularly to calcein.
+- Calcein AM is a non-fluorescent, membrane-permeable variant that enters cells and is hydrolyzed by intracellular esterases, producing calcein.
 
 ### Factors Affecting Calcein Fluorescence
 <sup class="ref-badge" title="Hausig-Punke, F. et al. Tracking the Endosomal Escape. Macromolecular Bioscience 22, 2200167 (2022)">ref</sup>
@@ -51,15 +51,15 @@ Overview <sup class="ref-badge" title="Hausig-Punke, F. et al. Tracking the Endo
 2. Add a solution containing ~70 mM calcein or 1 mM calcein + 1 mM Co<sup>2+</sup>, and vortex thoroughly until the lipid is fully dissolved.
 
 <div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💕 Preparing Calcein Stock</p>
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 Preparing Calcein Stock Solution</p>
   - Calcein is strongly acidic and has very low solubility under acidic conditions; therefore, NaOH is needed to adjust the pH and increase solubility. A pH meter should be used to continuously monitor the pH during adjustment.
-- In the absence of a buffering system, diluting the calcein stock will cause a significant drop in pH. If a stable pH is required, an excess of buffer species (e.g., HEPES, Tris) must be present.
+- <u>In the absence of a buffering system, diluting the calcein stock will cause a significant drop in pH.</u> If a stable pH is required, an excess of buffer species (e.g., HEPES, Tris) must be present.
 </div>
 
-3. (Optional: after vortexing, perform 3–5 freeze-thaw cycles, which is reported to improve the calcein encapsulation efficiency.) Use an extruder to pass the solution >20 times, or sonicate.
+3. (Optional: after vortexing, perform more than 5 freeze-thaw cycles, which is reported to improve the calcein encapsulation efficiency.) Use an extruder to pass the solution >20 times, or sonicate.
 
 <div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💕 Extrusion vs. Sonication</p>
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Extrusion vs. Sonication</p>
   Extrusion is the most common method and provides the best control over liposome size. However, some [literature](https://doi.org/10.3390/ma6083294) points out that due to shape relaxation, the size of extruded liposomes decreases significantly over time (on the order of days), and lipid fluidity drops markedly after 3 days; sonication does not suffer from this issue. The drawback of sonication, however, is that liposome size distribution is more difficult to control.
 </div>
 
@@ -67,14 +67,14 @@ Overview <sup class="ref-badge" title="Hausig-Punke, F. et al. Tracking the Endo
 5. Use SEC, centrifugation, or ultrafiltration with the external phase buffer to separate free calcein or Co<sup>2+</sup>-calcein from the dye-loaded liposomes.
 
 <div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💕 Comparison of Separation Methods</p>
-  [Literature](http://www.doi.org/10.26538/tjnpr/v6i9.6) indicates that SEC loses about 40% of liposomes, whereas 1 kDa ultrafiltration loses almost none; ultrafiltration also slightly reduces the mean liposome size.
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Comparison of Separation Methods</p>
+  [Literature](http://www.doi.org/10.26538/tjnpr/v6i9.6) indicates that SEC loses about 40% of liposomes, whereas 1 kDa ultrafiltration loses almost none; ultrafiltration slightly reduces the mean liposome size.
 </div>
 
-6. Pilot experiment to determine the appropriate liposome dilution factor: Dilute the liposomes with external phase buffer at various factors, transfer to a 96-well plate (black, low binding), and measure the fluorescence before and after adding 0.2% (v/v) Triton X-100 using a plate reader. A suitable situation is when the signal after Triton addition is 4–5 times that before. Typically, the liposome concentration is in the range of **1–100 µg/mL**.
-7. Pilot experiment to assess the effect of the protein/molecule of interest on fluorescence: Set up four control groups (without liposomes): <u>external phase buffer</u>, <u>external phase buffer + protein/molecule</u>, <u>external phase buffer + calcein/Co<sup>2+</sup>-calcein</u>, <u>external phase buffer + calcein/Co<sup>2+</sup>-calcein + protein/molecule</u>. Add 0.2% (v/v) Triton X-100 to all groups at the end. If a significant effect is observed, consider optimizing the concentration, reducing the effect, or switching to another dye.
+6. Pilot experiment to determine the appropriate liposome dilution factor: Dilute the liposomes with external phase buffer at various factors, transfer to a 96-well plate (black, low binding), and measure the fluorescence before and after adding 0.2% (v/v) Triton X-100 using a plate reader. A suitable sample condition is when the signal after Triton addition is 4–5 times that before. Typically, the liposome concentration is in the range of **1–100 µg/mL**.
+7. Pilot experiment to assess the effect of the protein/molecule of interest on fluorescence: Set up four control groups (without liposomes): <u>external phase buffer</u>, <u>external phase buffer + protein/molecule</u>, <u>external phase buffer + calcein/Co<sup>2+</sup>-calcein</u>, <u>external phase buffer + calcein/Co<sup>2+</sup>-calcein + protein/molecule</u>. Add 0.2% (v/v) Triton X-100 to all groups at the end. If significant signal shifts by protein/molecule are observed, consider optimizing the concentration, reducing the effect, or switching to another dye.
 8. Formal experiment: At least three control groups per condition: <u>external phase buffer</u>, <u>external phase buffer + liposomes</u>, <u>external phase buffer + liposomes + protein/molecule</u>. Add 0.2% (v/v) Triton X-100 to all groups at the end.
-9. Data processing: Normalize the fluorescence intensity. The maximum fluorescence can be taken from the external buffer + liposomes + Triton X-100 group, or from the external buffer + liposomes + protein/molecule + Triton X-100 group.
+9. Data processing: Normalize the fluorescence intensity. The initial fluorescence should be measured before protein/molecule addition. In some cases, noticable leakage can be observed immediately after protein/molecule addition. The maximum fluorescence can be taken from the external buffer + liposomes + Triton X-100 group, or from the external buffer + liposomes + protein/molecule + Triton X-100 group.
 
 Reference protocols from selected publications:
 
@@ -92,12 +92,12 @@ Reference protocols from selected publications:
 
 ## Additional Notes
 
-### On DMSO
-In liposome leakage assays where DMSO is used as part of the external phase, **controls with DMSO alone are essential**. Based on experience, 4% DMSO renders GUVs of DOPC impermeable to FITC (MW: 389 Da). [Literature](https://doi.org/10.3389/fmicb.2021.669709) indicates that DMSO ≤ 1% does not affect the liposome leakage induced by the peptides they studied.
+### About DMSO
+In liposome leakage assays where DMSO is used as part of the external phase, **controls with no DMSO are essential**. Based on my experience, 4% DMSO renders GUVs of DOPC impermeable to FITC (MW: 389 Da). [Literature](https://doi.org/10.3389/fmicb.2021.669709) indicates that DMSO ≤ 5% does not affect the liposome leakage induced by the peptides they studied.
 
 ### Estimating the Released Calcein Concentration
 
-Assume the total lipid concentration in solution is $C_{\text{lipid}}$, the encapsulated calcein concentration inside the liposomes is $C_0$, the solution volume is $V$, the average area occupied per lipid molecule is $A$, the mean liposome radius is $R$, and the final calcein concentration after complete release is $C_f$. Then
+Assume that the total lipid concentration in solution is $C_{\text{lipid}}$, the encapsulated calcein concentration inside the liposomes is $C_0$, the solution volume is $V$, the average area occupied per lipid molecule is $A$, the mean liposome radius is $R$, and the final calcein concentration after complete release is $C_f$. Then
 
 $$
 \begin{align}
@@ -107,7 +107,7 @@ C_f &= C_0 \cdot N_{\text{liposome}} \cdot \frac{4}{3}\pi R^3 / V \\
 \end{align}
 $$
 
-It is [known](https://doi.org/10.1016/j.bbamem.2012.05.006) that $A \approx 0.6~\mathrm{nm}^2$. Let
+[It is reported](https://doi.org/10.1016/j.bbamem.2012.05.006) that $A \approx 0.6~\mathrm{nm}^2$. Let
 
 $$
 C_{\text{lipid}} = x~\mathrm{mM}, \quad C_0 = y~\mathrm{mM}, \quad R = r \times 10^2~\mathrm{nm}
