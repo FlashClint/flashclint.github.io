@@ -33,8 +33,8 @@ The so-called deflection sensitivity is also referred to as z scan sensitivity.
 - If Drive3 is set correctly, the amplitude of the height sensor in high-speed capture should match the set PeakForce amplitude.
 </div>
 
-<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 Tip Deflection Sensitivity Changes During Scanning</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #EB8E23; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #EB8E23;">🔎 Tip Deflection Sensitivity Changes During Scanning</p>
 Possible causes:
 - Thermal drift shifting the laser spot position.
 - Changes in tip reflectivity caused by contamination or coating delamination.
@@ -59,8 +59,8 @@ Possible causes:
 - Set the sync distance <font color="#FCD092">immediately</font> after engagement; otherwise, the tip is easily damaged.
     - Autoconfig can be used to set this value, but when using a small peak force (where the peak force is barely discernible above the noise), manual adjustment is required.
 
-<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 Note</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #EB8E23; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #EB8E23;">🔎 Note</p>
 - In the Bruker Multimode 8 Force Monitor, the blue trace is approach and the red trace is retract.
 - Another use of autoconfig: to analyze and eliminate parasitic deflection (i.e., ringing at the pull-off point, typically including free oscillation of the tip after detachment from the surface, piezo cycle-induced tip deformation, and viscoelastic effects).
 </div>
@@ -108,8 +108,8 @@ Using autoconfig at a very small setpoint may cause the tip to completely lose c
 
 #### Lowpass Filter
 (This parameter appears distinct from the parameter controlled by "LP Deflection BW" ?)
-<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 "LP Deflection BW"</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #EB8E23; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #EB8E23;">🔎 "LP Deflection BW"</p>
 This parameter invokes a user-programmable low-pass filter to remove high-frequency noise from the real-time data. The filter operates on the collected data regardless of scan direction. The cutoff frequency can be set from 1–65 kHz.
 In contrast, the lowpass deflection bandwidth parameter in PeakForce (not available on the MM8) can only be set from 0–65.56 kHz.
 </div>
@@ -158,8 +158,8 @@ In contrast, the lowpass deflection bandwidth parameter in PeakForce (not availa
 *(Source: Muller, Nat. Protoc (2014))*
 </div>
 
-<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 Possible Causes of a Large Hysteresis Between Trace and Retrace:</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #EB8E23; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #EB8E23;">🔎 Possible Causes of a Large Hysteresis Between Trace and Retrace:</p>
 - The tip is not properly clamped.
 - The substrate is unstable (air bubbles, unadhered glue, or partially cleaved mica that did not fully detach and fell back onto the substrate).
 - Feedback gain is too low.

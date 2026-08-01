@@ -58,16 +58,16 @@ Overview <sup class="ref-badge" title="Hausig-Punke, F. et al. Tracking the Endo
 
 3. (Optional: after vortexing, perform more than 5 freeze-thaw cycles, which is reported to improve the calcein encapsulation efficiency.) Use an extruder to pass the solution >20 times, or sonicate.
 
-<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 Extrusion vs. Sonication</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #EB8E23; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #EB8E23;">🔎 Extrusion vs. Sonication</p>
   Extrusion is the most common method and provides the best control over liposome size. However, some [literature](https://doi.org/10.3390/ma6083294) points out that due to shape relaxation, the size of extruded liposomes decreases significantly over time (on the order of days), and lipid fluidity drops markedly after 3 days; sonication does not suffer from this issue. The drawback of sonication, however, is that liposome size distribution is more difficult to control.
 </div>
 
 4. Prepare the external phase solution, keeping the internal and external phases approximately isosmotic ([~70 mM calcein is roughly isosmotic with 10 mM NaCl](https://www.sciencedirect.com/science/article/pii/S0006349522006063)). For Co<sup>2+</sup>-calcein-encapsulated liposomes, the external phase should contain 1 mM EDTA.
 5. Use SEC, centrifugation, or ultrafiltration with the external phase buffer to separate free calcein or Co<sup>2+</sup>-calcein from the dye-loaded liposomes.
 
-<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-  <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 Comparison of Separation Methods</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #EB8E23; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+  <p style="margin: 0 0 8px 0; font-weight: 600; color: #EB8E23;">🔎 Comparison of Separation Methods</p>
   [Literature](http://www.doi.org/10.26538/tjnpr/v6i9.6) indicates that SEC loses about 40% of liposomes, whereas 1 kDa ultrafiltration loses almost none; ultrafiltration slightly reduces the mean liposome size.
 </div>
 
