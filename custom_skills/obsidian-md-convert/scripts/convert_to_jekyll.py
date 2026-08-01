@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Obsidian-to-Jekyll converter: converts an Obsidian markdown file into a Jekyll blog post.
 
@@ -43,8 +43,8 @@ def convert_images(text, prefix):
 def convert_callouts(text):
     """Convert Obsidian >[!Note] callouts to HTML divs with markdown=1."""
     styles = {
-        "note": ("💡", "#2563eb", "#eff6ff"),
-        "tip":  ("💡", "#d97706", "#fffbeb"),
+        "note": ("🔎", "#d97706", "#fffbeb"),
+        "tip":  ("💡", "#2563eb", "#eff6ff"),
         "warning": ("⚠️", "#dc2626", "#fef2f2"),
         "info": ("ℹ️", "#2563eb", "#eff6ff"),
     }

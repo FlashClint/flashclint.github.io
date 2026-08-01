@@ -25,21 +25,21 @@ comments: true
 
 - Before and after scanning, or after changing the laser alignment, calibrate the deflection sensitivity using a hard substrate (e.g., mica, glass).
 
-<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 Measuring Sensitivity</p>
+<div class="callout callout-tip" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Measuring Sensitivity</p>
 The so-called deflection sensitivity is also referred to as z scan sensitivity.
 - For z scan sensitivity: use Ramp mode, set trigger mode to "relative" and trig threshold to &lt;0.5 V.
 - For PeakForce QNM, also calibrate the Drive3 Amplitude Sensitivity (see Bruker AFM manual for the calibration procedure).
 - If Drive3 is set correctly, the amplitude of the height sensor in high-speed capture should match the set PeakForce amplitude.
 </div>
 
-<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Tip Deflection Sensitivity Changes During Scanning</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 Tip Deflection Sensitivity Changes During Scanning</p>
 Possible causes:
 - Thermal drift shifting the laser spot position.
 - Changes in tip reflectivity caused by contamination or coating delamination.
 **A 5–8% change in deflection sensitivity over several hours of scanning is acceptable.**
-*Source: Muller, Nat. Protoc (2014)*
+<sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>
 </div>
 
 - To measure $k$, the tip must be retracted at least 100 μm from the substrate.
@@ -56,22 +56,22 @@ Possible causes:
 
 #### Sync Distance
 
-- Set the sync distance <font color="#ff0000">immediately</font> after engagement; otherwise, the tip is easily damaged.
+- Set the sync distance <font color="#FCD092">immediately</font> after engagement; otherwise, the tip is easily damaged.
     - Autoconfig can be used to set this value, but when using a small peak force (where the peak force is barely discernible above the noise), manual adjustment is required.
 
-<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Note</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 Note</p>
 - In the Bruker Multimode 8 Force Monitor, the blue trace is approach and the red trace is retract.
 - Another use of autoconfig: to analyze and eliminate parasitic deflection (i.e., ringing at the pull-off point, typically including free oscillation of the tip after detachment from the surface, piezo cycle-induced tip deformation, and viscoelastic effects).
 </div>
 
-<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 Auto Config for Small Peak Force Setpoint (&lt; ~20 mV)</p>
+<div class="callout callout-tip" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Auto Config for Small Peak Force Setpoint (&lt; ~20 mV)</p>
 Using autoconfig at a very small setpoint may cause the tip to completely lose contact with the surface. Therefore, first set a larger setpoint, run autoconfig, and then reduce the setpoint back down.
 </div>
 
 - Sync Distance QNM is obtained by calibrating on a hard sample (and should not be modified since calibration), whereas Sync Distance New is used for feedback and needs to be tuned during scanning.
-- Alice Pyne's approach <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>: First optimize Sync Distance New so that the small circle lies at the peak force on the Force–Time curve; then set Sync Distance QNM to the same value as Sync Distance New, and check whether the Force–Z curve is symmetric about the small circle. <font color="#548dd4">(This can also serve as a check for correct Sync Distance New tuning: if setting Sync Distance QNM equal to Sync Distance New makes the Force–Z curve symmetric about the small circle, then the setting is correct.)</font>
+- Alice Pyne's approach <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>: First optimize Sync Distance New so that the small circle lies at the peak force on the Force–Time curve; then set Sync Distance QNM to the same value as Sync Distance New, and check whether the Force–Z curve is symmetric about the small circle. <font color="#787878">(This can also serve as a check for correct Sync Distance New tuning: if setting Sync Distance QNM equal to Sync Distance New makes the Force–Z curve symmetric about the small circle, then the setting is correct.)</font>
 - When the PeakForce frequency changes, the Sync Distance must be adjusted accordingly. Generally, when the frequency doubles, the Sync Distance should be reduced to 1/3 <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>.
     - <u>Personal note: This recommendation may apply to Sync Distance in units of μs rather than the percentage-based Sync Distance used on the MM8.</u>
 
@@ -79,7 +79,7 @@ Using autoconfig at a very small setpoint may cause the tip to completely lose c
 
 **Small amplitudes keep the tip in the short-range force regime, achieving high topographic contrast while also reducing fluid drag. However, the amplitude must not be too small to avoid sample damage.**
 
-- Large oscillation amplitudes (<font color="#ff0000">~10–100 nm</font>) are desirable for measuring long-range interactions (e.g., **electrostatic and hydrophobic**), whereas small oscillation amplitudes (<font color="#ff0000">3 nm</font>) are suitable for sensing short-range interactions (e.g., **Pauli repulsion and van der Waals**) <sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>.
+- Large oscillation amplitudes (~10–100 nm) are desirable for measuring long-range interactions (e.g., **electrostatic and hydrophobic**), whereas small oscillation amplitudes (3 nm) are suitable for sensing short-range interactions (e.g., **Pauli repulsion and van der Waals**) <sup class="ref-badge" title="Dufrene & Muller, Nat. Methods (2013)">ref</sup>.
 - The amplitude can be adjusted to roughly the height of the protein protrusions (for membrane proteins: 4–15 nm) <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>, or 1–2 times the protrusion height <sup class="ref-badge" title="Alice Pyne, Chromosome Architecture (2022)">ref</sup>.
 - At too-high amplitudes, the force feedback may be impaired and the biological sample may be damaged <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>.
 
@@ -108,8 +108,8 @@ Using autoconfig at a very small setpoint may cause the tip to completely lose c
 
 #### Lowpass Filter
 (This parameter appears distinct from the parameter controlled by "LP Deflection BW" ?)
-<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 "LP Deflection BW"</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 "LP Deflection BW"</p>
 This parameter invokes a user-programmable low-pass filter to remove high-frequency noise from the real-time data. The filter operates on the collected data regardless of scan direction. The cutoff frequency can be set from 1–65 kHz.
 In contrast, the lowpass deflection bandwidth parameter in PeakForce (not available on the MM8) can only be set from 0–65.56 kHz.
 </div>
@@ -131,7 +131,7 @@ In contrast, the lowpass deflection bandwidth parameter in PeakForce (not availa
     5. Zoom in to a small area, increase pixel count to achieve a resolution of $\le$ ~0.5 nm.
     6. Reduce the setpoint (and re-tune gain).
 - From large to small scan ranges:
-    - Large range: scan rate 1–2 Hz, PeakForce amplitude 40–60 nm <font color="#245bdb">(to compensate for large obstacles and the tilt of the support)</font>.
+    - Large range: scan rate 1–2 Hz, PeakForce amplitude 40–60 nm (to compensate for large obstacles and the tilt of the support).
         - The scan angle can also be adjusted to compensate for the tilt of the support.
     - Small range: zoom in from the large range, adjust the amplitude for optimal topographic contrast. PeakForce amplitude: membrane proteins 4–15 nm; protein fibrils 10–25 nm <sup class="ref-badge" title="Muller, Nat. Protoc (2014)">ref</sup>.
         - When switching to a small scan range, it may be necessary to reduce the setpoint accordingly.
@@ -151,15 +151,15 @@ In contrast, the lowpass deflection bandwidth parameter in PeakForce (not availa
 - For tips with a low spring constant, thermal noise is usually the dominant noise source.
 - Cantilever drift typically manifests as a slow, continuous bending of the cantilever.
 
-<div class="callout callout-tip" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">💡 If the Instrument Cannot Be Stabilized, Diagnose as Follows:</p>
+<div class="callout callout-tip" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 If the Instrument Cannot Be Stabilized, Diagnose as Follows:</p>
 - If unstable in both liquid and air, the issue is likely ambient thermal effects or a problem with the instrument itself.
 - If unstable only in liquid, the problem is more likely with the probe.
 *(Source: Muller, Nat. Protoc (2014))*
 </div>
 
-<div class="callout callout-note" markdown="1" style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-<p style="margin: 0 0 8px 0; font-weight: 600; color: #2563eb;">💡 Possible Causes of a Large Hysteresis Between Trace and Retrace:</p>
+<div class="callout callout-note" markdown="1" style="background: #fffbeb; border-left: 4px solid #d97706; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
+<p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">🔎 Possible Causes of a Large Hysteresis Between Trace and Retrace:</p>
 - The tip is not properly clamped.
 - The substrate is unstable (air bubbles, unadhered glue, or partially cleaved mica that did not fully detach and fell back onto the substrate).
 - Feedback gain is too low.
